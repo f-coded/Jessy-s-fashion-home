@@ -1,0 +1,13 @@
+node_modules
+.next
+out
+*.tsbuildinfo
+next-env.d.ts
+.DS_Store
+.env*.local
+data/gallery.json
+public/gallery/*
+!public/gallery/storefront.jpg
+!public/gallery/atelier.jpg
+!public/gallery/boutique.jpg
+!public/gallery/sketch-room.jpg

@@ -1,0 +1,468 @@
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "swiper/css";
+@import "../styles/utilities.css";
+@import "../styles/theme.css";
+
+/* ---- Small additions the template injects at runtime / via inline styles ---- */
+
+html {
+  scroll-behavior: auto;
+}
+
+.at-title-anim .at-title-text .char {
+  display: inline-block;
+  text-shadow: 0 1.05em var(--at-theme-primary);
+  transition:
+    translate 0.3s var(--basic-ease),
+    text-shadow 0.1s 0.15s ease;
+}
+.at-title-anim:hover .at-title-text .char {
+  text-shadow: 0 1.05em;
+  transition:
+    translate 0.5s calc((var(--char) - 1) * 24ms) var(--basic-ease),
+    text-shadow 0.175s calc((var(--char) - 1) * 24ms + 0.225s) ease;
+  translate: 0 -1.05em;
+}
+.at-title-anim .at-title-text .char:empty::after,
+.at-title-anim .at-title-text .char.space::after {
+  content: "\00a0";
+}
+
+.split-word {
+  white-space: nowrap;
+  display: inline-block;
+}
+.split-char {
+  display: inline-block;
+}
+
+/* react-fast-marquee brand ticker */
+.carouselTicker__list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 0 2rem;
+}
+.carouselTicker__item {
+  margin: 0 1.5rem;
+}
+.brand-item img {
+  height: 35px;
+  width: auto;
+}
+
+/* hero social pills on dark banner */
+.at-hero-social.style-2 a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+.at-hero-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Marquee hover-effect-1 (blog thumbs) – injected by the template at runtime */
+.hover-effect-1 {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.hover-effect-1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  filter: brightness(1) contrast(1);
+}
+
+/* Section 2 top ornaments row */
+.sec-2-home-2 .mx-4 svg {
+  flex-shrink: 0;
+}
+
+/* Page loader bars layout */
+.page-loader .bar {
+  flex: 0 0 10vw;
+}
+
+/* Video popup (custom lightweight iframe modal, magnific-like) */
+.mfp-bg,
+.mfp-wrap {
+  animation: mfp-fade-in 0.3s ease-out;
+}
+@keyframes mfp-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.mfp-iframe-holder .mfp-content {
+  position: relative;
+}
+.mfp-iframe-scaler {
+  position: relative;
+}
+
+/* DM Sans from next/font */
+html {
+  --at-ff-body: var(--font-dm-sans), "DM Sans", sans-serif;
+  --at-ff-heading: var(--font-dm-sans), "DM Sans", sans-serif;
+}
+
+/* Offcanvas accordion toggle (template's runtime-injected markup) */
+.at-menu-close {
+  position: absolute;
+  top: 12px;
+  right: 7px;
+}
+.at-menu-close i {
+  font-size: 18px;
+  font-weight: 500;
+  font-style: normal;
+  display: inline-flex;
+  transition: all 0.3s;
+}
+.at-offcanvas-menu ul li.active > .at-menu-close i {
+  top: 10px;
+  transform: rotate(90deg);
+}
+.at-offcanvas-2-wrapper .at-offcanvas-menu > nav > ul > li .at-menu-close i {
+  color: var(--at-common-black);
+  font-size: 28px;
+}
+.at-offcanvas-menu .at-submenu {
+  display: none;
+}
+
+/* =========================================================
+   Jenny's Fashion Home — brand layer (palette, type, logo)
+   ========================================================= */
+
+/* Bricolage Grotesque as the main bold face; DM Sans stays for body copy */
+:root {
+  --at-ff-body: var(--font-dm-sans), "DM Sans", sans-serif;
+  --at-ff-heading: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  --at-ff-script: var(--font-script), "Great Vibes", cursive;
+}
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.at-btn,
+.at-btn-group .at-btn-circle,
+.at-main-menu nav ul li a,
+.at-main-menu nav ul li .at-megamenu-title,
+.at-offcanvas-title,
+.at-offcanvas-menu ul li > a,
+.at-hero-social a,
+.blog-card-2__category,
+.postbox-scroll-zoom .postbox-scroll-zoom-marquee-track,
+.at-categories-item,
+.card-item-text,
+.odometer {
+  font-family: var(--at-ff-heading);
+}
+
+/* Black · gold · cream palette.
+   Light values are scoped so the template's [data-bs-theme=dark] rule keeps winning in dark mode. */
+:root {
+  --at-theme-primary: #c9a961;
+  --at-gradient-primary: linear-gradient(90deg, #c9a961 0%, #f1dfae 100%);
+  /* warm black dark mode (consumed by the template's dark rule) */
+  --at-neutral-dark-0: #0d0c0a;
+  --at-neutral-dark-0-rgb: 13, 12, 10;
+  --at-neutral-dark-50: #161411;
+  --at-neutral-dark-50-rgb: 22, 20, 17;
+  --at-neutral-dark-100: #262320;
+  --at-neutral-dark-200: #322e29;
+  --at-neutral-dark-300: #4a443b;
+  --at-neutral-dark-500: #b8ad9a;
+  --at-common-dark-white: #141210;
+  --at-common-dark-white-rgb: 20, 18, 16;
+}
+:root:not([data-bs-theme="dark"]) {
+  /* cream light mode */
+  --at-neutral-0: #fbf8f2;
+  --at-neutral-0-rgb: 251, 248, 242;
+  --at-neutral-50: #f3ede2;
+  --at-neutral-50-rgb: 243, 237, 226;
+  --at-neutral-100: #e4dccb;
+  --at-neutral-200: #cfc6b2;
+  --at-neutral-300: #b3a98f;
+  --at-common-black: #141210;
+  --at-common-black-rgb: 20, 18, 16;
+}
+.fill-primary path,
+.mg-portfolio-title-wrap svg path {
+  fill: var(--at-theme-primary);
+}
+.at-btn-group:hover > :first-child,
+.at-btn-group:hover > :nth-child(2),
+.at-btn-group:hover > :nth-child(3),
+.at-btn:hover,
+.at-hero-social a:hover,
+.at-hero-social.style-2 a:hover {
+  background: var(--at-theme-primary) !important;
+  border-color: var(--at-theme-primary) !important;
+  color: #141210 !important;
+}
+.at-btn-group-transparent:hover > :nth-child(2),
+.at-btn-group-transparent:hover > :first-child {
+  background: var(--at-theme-primary) !important;
+  color: #141210 !important;
+}
+.sec-2-home-2 .mx-4 svg path {
+  fill: var(--at-theme-primary);
+}
+.card-item__bg {
+  border-color: rgba(201, 169, 97, 0.35);
+}
+.testimonial-content-rating-stars svg path {
+  fill: var(--at-theme-primary);
+}
+.at-search-form-input .at-search-focus-border {
+  background-color: var(--at-theme-primary);
+}
+.home-2-pricing-card--popular .home-2-pricing-card__body {
+  background: rgba(201, 169, 97, 0.12);
+}
+.alt-portfolio-btn .content .rounded-pill {
+  border-color: var(--at-theme-primary) !important;
+  color: var(--at-theme-primary) !important;
+}
+::selection {
+  background: var(--at-theme-primary);
+  color: #141210;
+}
+
+/* Wordmark */
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--at-common-black);
+  text-decoration: none;
+  line-height: 1;
+}
+.brand-logo__mark {
+  width: auto;
+  height: 40px;
+  filter: none !important;
+}
+.brand-logo__text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.brand-logo__script {
+  font-family: var(--at-ff-script);
+  font-size: 34px;
+  line-height: 0.8;
+  color: var(--at-theme-primary);
+  letter-spacing: 0;
+  margin-left: 2px;
+}
+.brand-logo__sub {
+  font-family: var(--at-ff-heading);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  margin-top: 5px;
+  color: currentColor;
+}
+.brand-logo--light {
+  color: #fff;
+}
+.brand-logo--lg .brand-logo__mark {
+  height: 64px;
+}
+.brand-logo--lg .brand-logo__script {
+  font-size: 56px;
+}
+.brand-logo--lg .brand-logo__sub {
+  font-size: 13px;
+  margin-top: 8px;
+}
+[data-bs-theme="dark"] .at-header-logo img.brand-logo__mark,
+[data-bs-theme="dark"] .at-offcanvas-logo img.brand-logo__mark {
+  filter: none;
+}
+
+/* Hero title: script "Jenny's" + grotesque "Fashion Home" */
+.hero-title-script {
+  font-family: var(--at-ff-script);
+  font-weight: 400;
+  color: var(--at-theme-primary);
+  letter-spacing: 0;
+  margin-right: 0.12em;
+  /* keep the script glyphs from enlarging the line box (would reveal the hover shadow copy) */
+  display: inline-block;
+  line-height: 0.55;
+  vertical-align: -0.04em;
+}
+.jfh-hero .at-title-anim {
+  line-height: 1.1;
+}
+
+/* Gallery section */
+.jfh-gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-auto-rows: 120px;
+  grid-auto-flow: dense;
+  gap: 24px;
+}
+.jfh-gallery-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  display: block;
+  grid-column: span 4;
+  grid-row: span 3;
+  cursor: zoom-in;
+  background: var(--at-neutral-100);
+}
+.jfh-gallery-item--wide {
+  grid-column: span 8;
+}
+.jfh-gallery-item--tall {
+  grid-row: span 5;
+}
+.jfh-gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), filter 0.6s;
+}
+.jfh-gallery-item:hover img {
+  transform: scale(1.08);
+  filter: brightness(1.06);
+}
+.jfh-gallery-item::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(20, 18, 16, 0) 55%, rgba(20, 18, 16, 0.55) 100%);
+  opacity: 0;
+  transition: opacity 0.5s;
+  pointer-events: none;
+}
+.jfh-gallery-item:hover::after {
+  opacity: 1;
+}
+.jfh-gallery-item__cap {
+  position: absolute;
+  left: 22px;
+  bottom: 18px;
+  color: #fff;
+  font-family: var(--at-ff-heading);
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  transform: translateY(12px);
+  opacity: 0;
+  transition: all 0.5s;
+  z-index: 1;
+}
+.jfh-gallery-item:hover .jfh-gallery-item__cap {
+  opacity: 1;
+  transform: translateY(0);
+}
+@media (max-width: 991.98px) {
+  .jfh-gallery-grid {
+    grid-auto-rows: 90px;
+    gap: 14px;
+  }
+  .jfh-gallery-item {
+    grid-column: span 6;
+  }
+  .jfh-gallery-item--wide {
+    grid-column: span 12;
+  }
+}
+@media (max-width: 574.98px) {
+  .jfh-gallery-item,
+  .jfh-gallery-item--wide {
+    grid-column: span 12;
+    grid-row: span 3;
+  }
+  .jfh-gallery-item--tall {
+    grid-row: span 4;
+  }
+}
+
+/* Lightbox (shares the magnific-style shell) */
+.jfh-lightbox-img {
+  max-width: min(92vw, 1400px);
+  max-height: 88vh;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.6);
+}
+.mfp-image-holder .mfp-content {
+  display: inline-block;
+}
+.mfp-image-holder .mfp-close {
+  right: 0;
+  top: -40px;
+  width: auto;
+  padding-right: 0;
+}
+
+/* WhatsApp accent */
+.jfh-whatsapp {
+  color: var(--at-theme-primary) !important;
+}
+
+/* Hero video backdrop */
+.jfh-hero {
+  isolation: isolate;
+}
+.jfh-hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -2;
+}
+.jfh-hero__veil {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, rgba(13, 12, 10, 0.55) 0%, rgba(13, 12, 10, 0.35) 45%, rgba(13, 12, 10, 0.8) 100%);
+}
+.jfh-hero .at-hero-service {
+  border-bottom-color: rgba(255, 255, 255, 0.5);
+}
+.jfh-hero .common-black {
+  color: #fff !important;
+}
+.jfh-hero .at-hero-social.style-2 a {
+  color: #141210;
+  background: #fff;
+  border-color: #fff;
+}
+/* the script wrapper itself must not take part in the char wave (its .char children do) */
+.at-title-text .hero-title-script,
+.at-title-anim:hover .at-title-text .hero-title-script {
+  text-shadow: none;
+  translate: 0 0;
+  transition: none;
+}
+
+.mfp-iframe-scaler video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  display: block;
+}
