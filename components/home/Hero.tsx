@@ -29,8 +29,7 @@ export default function Hero() {
                 <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center">
                   <HeroShape />
                   <span className="fz-font-md fw-500 text-white text-center lh-base">
-                    Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
-                    delivered to brands and makers.
+                    Bespoke haute couture, designer fabrics, ready-to-wear fashion and sewing machine supplies for brands, artists and makers worldwide.
                   </span>
                 </div>
               </div>
