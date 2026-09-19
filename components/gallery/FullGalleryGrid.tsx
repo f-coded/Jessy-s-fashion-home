@@ -1,8 +1,9 @@
 "use client";
 
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import type { GalleryItem } from "@/lib/gallery";
 import AtBtn from "@/components/ui/AtBtn";
+import GalleryLightbox from "./GalleryLightbox";
 
 // Supplementary curated lookbook images to offer a rich full visual gallery experience
 const EXTRA_LOOKS: GalleryItem[] = [
@@ -18,17 +19,41 @@ const EXTRA_LOOKS: GalleryItem[] = [
 
 const CATEGORIES = [
   { id: "all", label: "All Photos" },
-  { id: "uploads", label: "Admin Uploads" },
   { id: "boutique", label: "Boutique & Store" },
   { id: "couture", label: "Couture & Gowns" },
+  { id: "fabrics", label: "Fabrics" },
+  { id: "machines", label: "Sewing Machines" },
 ];
+
+function matchCategory(item: GalleryItem, catId: string): boolean {
+  if (catId === "all") return true;
+
+  const cap = (item.caption || "").toLowerCase();
+  const id = item.id.toLowerCase();
+  const src = item.src.toLowerCase();
+  const full = `${cap} ${id} ${src}`;
+
+  if (catId === "boutique") {
+    return id.startsWith("seed-") || src.includes("/store/") || full.includes("boutique") || full.includes("store") || full.includes("display") || full.includes("floor");
+  }
+  if (catId === "couture") {
+    return id.startsWith("extra-") || full.includes("couture") || full.includes("gown") || full.includes("bridal") || full.includes("fashion") || full.includes("wear");
+  }
+  if (catId === "fabrics") {
+    return full.includes("fabric") || full.includes("textile") || full.includes("silk") || full.includes("velvet") || full.includes("pattern") || full.includes("work-6");
+  }
+  if (catId === "machines") {
+    return full.includes("machine") || full.includes("sewing") || full.includes("atelier") || full.includes("sketch") || full.includes("studio") || full.includes("fitting") || full.includes("work-5");
+  }
+  return true;
+}
 
 const PATTERN = ["wide", "tall", "", "", "tall", "wide"];
 
 export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: GalleryItem[] }) {
   const [activeCategory, setActiveCategory] = useState<string>("all");
   const [searchQuery, setSearchQuery] = useState<string>("");
-  const [openIndex, setOpenIndex] = useState<number | null>(null);
+  const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
   // Combine uploaded items with curated extras (avoiding duplicates)
   const allItems = useMemo(() => {
@@ -40,13 +65,7 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
   // Filter items by category & search query
   const filteredItems = useMemo(() => {
     return allItems.filter((item) => {
-      const isUpload = !item.id.startsWith("seed-") && !item.id.startsWith("extra-");
-      const isBoutique = item.id.startsWith("seed-") || item.src.includes("/store/");
-      const isCouture = item.id.startsWith("extra-") || item.src.includes("/work-") || item.src.includes("/slide-");
-
-      if (activeCategory === "uploads" && !isUpload) return false;
-      if (activeCategory === "boutique" && !isBoutique) return false;
-      if (activeCategory === "couture" && !isCouture) return false;
+      if (!matchCategory(item, activeCategory)) return false;
 
       if (searchQuery.trim()) {
         const query = searchQuery.toLowerCase();
@@ -59,34 +78,6 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
     });
   }, [allItems, activeCategory, searchQuery]);
 
-  const activeItem = openIndex !== null ? filteredItems[openIndex] : null;
-
-  const close = useCallback(() => setOpenIndex(null), []);
-  const step = useCallback(
-    (dir: number) => {
-      setOpenIndex((idx) => {
-        if (idx === null || filteredItems.length === 0) return null;
-        return (idx + dir + filteredItems.length) % filteredItems.length;
-      });
-    },
-    [filteredItems.length]
-  );
-
-  useEffect(() => {
-    if (openIndex === null) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") close();
-      if (e.key === "ArrowRight") step(1);
-      if (e.key === "ArrowLeft") step(-1);
-    };
-    window.addEventListener("keydown", onKey);
-    document.body.style.overflow = "hidden";
-    return () => {
-      window.removeEventListener("keydown", onKey);
-      document.body.style.overflow = "";
-    };
-  }, [openIndex, close, step]);
-
   return (
     <div className="jfh-full-gallery">
       {/* Search & Filter Bar */}
@@ -94,15 +85,7 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
         {/* Categories */}
         <div className="d-flex flex-wrap gap-2">
           {CATEGORIES.map((cat) => {
-            const count =
-              cat.id === "all"
-                ? allItems.length
-                : cat.id === "uploads"
-                ? uploadedItems.filter((i) => !i.id.startsWith("seed-")).length
-                : cat.id === "boutique"
-                ? allItems.filter((i) => i.id.startsWith("seed-") || i.src.includes("/store/")).length
-                : allItems.filter((i) => i.id.startsWith("extra-") || i.src.includes("/work-")).length;
-
+            const count = allItems.filter((i) => matchCategory(i, cat.id)).length;
             const isActive = activeCategory === cat.id;
             return (
               <button
@@ -110,7 +93,7 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
                 type="button"
                 onClick={() => {
                   setActiveCategory(cat.id);
-                  setOpenIndex(null);
+                  setLightboxIndex(null);
                 }}
                 className={`btn btn-sm rounded-pill px-4 py-2 transition-all ${
                   isActive ? "btn-dark text-white fw-600" : "btn-outline-secondary opacity-75"
@@ -131,7 +114,7 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
               value={searchQuery}
               onChange={(e) => {
                 setSearchQuery(e.target.value);
-                setOpenIndex(null);
+                setLightboxIndex(null);
               }}
               className="form-control form-control-sm rounded-pill ps-3 pe-4"
             />
@@ -156,7 +139,6 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
         <div className="jfh-gallery-grid">
           {filteredItems.map((it, i) => {
             const size = PATTERN[i % PATTERN.length];
-            const isNewUpload = !it.id.startsWith("seed-") && !it.id.startsWith("extra-");
 
             return (
               <a
@@ -165,22 +147,14 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
                 className={`jfh-gallery-item${size ? ` jfh-gallery-item--${size}` : ""} at_fade_anim position-relative`}
                 onClick={(e) => {
                   e.preventDefault();
-                  setOpenIndex(i);
+                  setLightboxIndex(i);
                 }}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img src={it.src} alt={it.caption ?? "Jenny's Fashion Home"} loading="lazy" />
 
-                {/* Badges & Captions */}
-                <div className="position-absolute top-0 start-0 m-3 z-2">
-                  {isNewUpload && <span className="badge bg-dark text-white rounded-pill px-3 py-1">New Upload</span>}
-                </div>
-
                 <div className="jfh-gallery-item__cap">
                   <span>{it.caption || "Jenny's Fashion Home Boutique"}</span>
-                  <small className="d-block opacity-75 fz-12 mt-1">
-                    {new Date(it.addedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
-                  </small>
                 </div>
               </a>
             );
@@ -203,52 +177,15 @@ export default function FullGalleryGrid({ uploadedItems }: { uploadedItems: Gall
         </div>
       )}
 
-      {/* Modal Lightbox Preview */}
-      {activeItem && openIndex !== null && (
-        <>
-          <div className="mfp-bg mfp-ready" onClick={close}></div>
-          <div className="mfp-wrap mfp-close-btn-in mfp-auto-cursor mfp-ready" tabIndex={-1}>
-            <div className="mfp-container mfp-s-ready mfp-image-holder" onClick={(e) => e.target === e.currentTarget && close()}>
-              <div className="mfp-content position-relative">
-                <button title="Close (Esc)" type="button" className="mfp-close" onClick={close}>
-                  ×
-                </button>
-
-                <div className="text-center position-relative">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img className="jfh-lightbox-img rounded-3 shadow-lg" src={activeItem.src} alt={activeItem.caption ?? ""} />
-
-                  {/* Lightbox Footer & Details */}
-                  <div className="mt-3 text-white text-center">
-                    <h5 className="text-white mb-1 fw-500">{activeItem.caption || "Jenny's Fashion Home Boutique"}</h5>
-                    <p className="fz-font-sm text-white-50 mb-0">
-                      Photo {openIndex + 1} of {filteredItems.length} — Added{" "}
-                      {new Date(activeItem.addedAt).toLocaleDateString(undefined, { year: "numeric", month: "short", day: "numeric" })}
-                    </p>
-                    <div className="mt-2 d-flex justify-content-center gap-3">
-                      <a
-                        href={activeItem.src}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="btn btn-sm btn-outline-light rounded-pill px-3"
-                      >
-                        Open Full Image ↗
-                      </a>
-                    </div>
-                  </div>
-                </div>
-
-                {filteredItems.length > 1 && (
-                  <>
-                    <button type="button" className="mfp-arrow mfp-arrow-left" aria-label="Previous" onClick={() => step(-1)} />
-                    <button type="button" className="mfp-arrow mfp-arrow-right" aria-label="Next" onClick={() => step(1)} />
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
-        </>
-      )}
+      {/* Premium Lightbox Modal */}
+      <GalleryLightbox
+        items={filteredItems}
+        currentIndex={lightboxIndex}
+        onClose={() => setLightboxIndex(null)}
+        onSelectIndex={(idx) => setLightboxIndex(idx)}
+      />
     </div>
   );
 }
+
+
