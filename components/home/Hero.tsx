@@ -4,7 +4,7 @@ import { SITE } from "@/lib/site";
 export default function Hero() {
   return (
     <section className="sec-1-home-2 pt-85 container-2200" id="top-hero">
-      <div className="overflow-hidden p-relative pt-70 pb-70 pt-md-90 pb-md-90 mx-lg-3 mx-2 rounded-5 jfh-hero">
+      <div className="overflow-hidden p-relative pt-100 pb-80 pt-md-140 pb-md-100 mx-lg-3 mx-2 rounded-5 jfh-hero">
         {/* Boutique video backdrop + dark veil */}
         <video
           className="jfh-hero__video"
@@ -22,34 +22,28 @@ export default function Hero() {
         ></div>
 
         <div className="container p-relative z-1">
-          {/* Top Row: Subheadline Text with Icon */}
-          <div className="row g-4 align-items-center mb-3 mb-md-4">
-            <div className="col-xxl-6 col-xl-7 col-lg-8 col-12">
-              <div className="alt-hero-service at-hero-service">
-                <ul>
-                  <li>
-                    <HeroShape />
-                  </li>
-                  <li>
-                    <span className="fz-font-md fw-500 text-white">
-                      Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
-                      delivered to brands and makers.
-                    </span>
-                  </li>
-                </ul>
+          {/* Top Row: Subheadline Text & Icon Centered */}
+          <div className="row justify-content-center text-center mb-4 mb-md-5">
+            <div className="col-xxl-8 col-xl-9 col-lg-10 col-12 text-center">
+              <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                <HeroShape />
+                <span className="fz-font-md fw-500 text-white text-center lh-base">
+                  Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
+                  delivered to brands and makers.
+                </span>
               </div>
             </div>
           </div>
 
-          {/* Bottom Row: Main Title + Phone Number */}
-          <div className="row g-3 align-items-end mt-2">
+          {/* Bottom Row: Main Title Centered + Phone Number */}
+          <div className="row justify-content-center text-center mt-2">
             <div className="col-12">
-              <div className="at-title-anim overflow-hidden">
-                <h1 className="jfh-hero-title fw-600 mb-0 at-title-text text-white">
+              <div className="at-title-anim overflow-hidden text-center">
+                <h1 className="jfh-hero-title fw-600 mb-0 at-title-text text-white text-center">
                   Jenny&apos;s Fashion Home<sup className="fw-400">®</sup>
                 </h1>
               </div>
-              <div className="d-flex justify-content-end align-items-center mt-3">
+              <div className="d-flex justify-content-center justify-content-md-end align-items-center mt-4">
                 <p className="fz-font-lg fw-500 mb-0 text-white">
                   <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="jfh-whatsapp text-decoration-none">
                     [ {SITE.phoneDisplay} ]
