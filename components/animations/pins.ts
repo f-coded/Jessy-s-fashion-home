@@ -74,16 +74,18 @@ export function initPins(): () => void {
           trigger: sec,
           pin: true,
           start: "top top",
-          end: () => `+=${50 * items.length}%`,
-          scrub: 1,
-          invalidateOnRefresh: true,
+          end: () => `+=${60 * items.length}%`,
+          scrub: 0.8,
+          invalidateOnRefresh: false,
           onUpdate: (self) => setActive(self.progress),
         },
-        defaults: { ease: "none", duration: 1 },
+        defaults: { ease: "none" },
       });
       items.forEach((it, i) => {
-        tl.to(it, { scale: 0.9 });
-        if (items[i + 1]) tl.to(items[i + 1], { yPercent: 0 }, "<");
+        tl.to(it, { scale: 0.93, opacity: 0.9 });
+        if (items[i + 1]) {
+          tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
+        }
       });
       const onScroll = () => {
         if (tl.scrollTrigger?.isActive) setActive(tl.scrollTrigger.progress ?? 0);
@@ -123,12 +125,25 @@ export function initPins(): () => void {
         if (i !== 0) gsap.set(it, horizontal ? { xPercent: 100 } : { yPercent: 100 });
       });
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: sec, pin: true, start: "top top", end: () => `+=${50 * items.length}%`, scrub: 1, invalidateOnRefresh: true },
+        scrollTrigger: {
+          trigger: sec,
+          pin: true,
+          start: "top top",
+          end: () => `+=${60 * items.length}%`,
+          scrub: 0.8,
+          invalidateOnRefresh: false,
+        },
         defaults: { ease: "none" },
       });
       items.forEach((it, i) => {
-        tl.to(it, { scale: 0.9 });
-        if (items[i + 1]) tl.to(items[i + 1], horizontal ? { xPercent: 0 } : { yPercent: 0 }, "<");
+        tl.to(it, { scale: 0.93 });
+        if (items[i + 1]) {
+          if (horizontal) {
+            tl.fromTo(items[i + 1], { xPercent: 100 }, { xPercent: 0, duration: 1 }, "<");
+          } else {
+            tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
+          }
+        }
       });
     });
   });
