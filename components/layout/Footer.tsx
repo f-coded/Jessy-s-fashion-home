@@ -1,118 +1,193 @@
-import Link from "next/link";
-import AtBtn from "@/components/ui/AtBtn";
-import { SocialArrow } from "@/components/ui/Icons";
+"use client";
+
+import React from "react";
 import { SITE } from "@/lib/site";
-import Logo from "./Logo";
 
-const LINKS_A = [
-  { label: "Home", href: "/" },
-  { label: "About Jenny", href: "#about" },
-  { label: "What We Do", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
-  { label: "Contact", href: "#footer" },
-];
-const LINKS_B = [
-  { label: "Styling", href: "#services" },
-  { label: "Haute Couture", href: "#services" },
-  { label: "Fabrics & RTW", href: "#services" },
-  { label: "Sewing Machines", href: "#services" },
-];
-const SOCIAL = ["Instagram", "TikTok", "Facebook", "Pinterest", "Youtube", "WhatsApp"];
-const SERVICES = ["Haute Couture Styling", "Fabrics & Textiles", "Ready-to-Wear", "Sewing Machines"];
-
-/** Fixed-bottom footer revealed as the page content scrolls away (scales 0.95 → 1). */
 export default function Footer() {
+  const scrollToTop = (e: React.MouseEvent) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
   return (
-    <footer className="footer-fixed-bottom bg-neutral-950 changeless" id="footer">
-      <div className="at-footer-area mp-footer-style mp-footer-style-2 pt-120 pb-0">
+    <footer
+      className="footer-fixed-bottom changeless text-white p-relative overflow-hidden"
+      id="footer"
+      style={{ backgroundColor: "#0e0d0b" }}
+    >
+      <div className="at-footer-area pt-90 pb-40 p-relative z-1">
         <div className="container">
-          <div className="row g-5 pb-md-5 pb-2">
-            <div className="col-lg-4">
-              <div className="d-flex flex-wrap align-items-start gap-5">
-                <Logo className="at-header-logo" tone="light" />
-                <div className="d-flex flex-column gap-3">
-                  <h6 className="text-white mb-2 fw-medium">
-                    <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="text-white text-decoration-none">
-                      {SITE.phoneDisplay} · WhatsApp
-                    </a>
-                  </h6>
-                  <h6 className="text-white mb-2">
-                    <a href={SITE.mailto} className="text-white text-decoration-none">
-                      {SITE.email}
-                    </a>
-                  </h6>
-                  <h6 className="text-white mb-0">
-                    {SITE.addressLine1}
-                    <br />
-                    {SITE.addressLine2}
-                  </h6>
-                </div>
-              </div>
+          {/* Top Contact Section */}
+          <div className="text-center mb-5">
+            {/* Section Tag */}
+            <span
+              className="d-inline-block text-uppercase fw-500 mb-3"
+              style={{ color: "#cda052", letterSpacing: "0.18em", fontSize: "12px" }}
+            >
+              (05) CONTACT
+            </span>
+
+            {/* Main Headline */}
+            <h2
+              className="display-3 fw-bold text-white mb-4"
+              style={{
+                fontFamily: "var(--font-bricolage), sans-serif",
+                letterSpacing: "-0.03em",
+                fontSize: "clamp(36px, 5vw, 68px)",
+              }}
+            >
+              Let&apos;s make it{" "}
+              <span
+                style={{
+                  fontFamily: "var(--font-script), cursive",
+                  color: "#cda052",
+                  fontWeight: 400,
+                  fontStyle: "italic",
+                  marginLeft: "4px",
+                }}
+              >
+                yours.
+              </span>
+            </h2>
+
+            {/* WhatsApp CTA Pill Button */}
+            <div className="d-flex justify-content-center mt-4">
+              <a
+                href={SITE.whatsapp}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill fw-bold text-decoration-none shadow-sm transition-all jfh-gold-pill-btn"
+                style={{
+                  backgroundColor: "#cda052",
+                  color: "#0e0d0b",
+                  fontSize: "13px",
+                  letterSpacing: "0.1em",
+                }}
+              >
+                <svg
+                  width="18"
+                  height="18"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                </svg>
+                CHAT WITH JENNY ON WHATSAPP
+              </a>
             </div>
-            <div className="col-lg-4 col-md-6 mx-auto">
-              <div className="at-footer-widget alt-footer-link-item-wrap row">
-                <div className="alt-footer-link-item col-6">
-                  <ul>
-                    {LINKS_A.map((l) => (
-                      <li key={l.label} className="mb-15">
-                        <Link href={l.href}>{l.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="alt-footer-link-item col-6">
-                  <ul>
-                    {LINKS_B.map((l) => (
-                      <li key={l.label} className="mb-15">
-                        <Link href={l.href}>{l.label}</Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
+          </div>
+
+          {/* Thin Divider Line */}
+          <div className="my-5" style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.12)" }}></div>
+
+          {/* 3-Column Contact Details + Giant Background Watermark */}
+          <div className="p-relative my-5 py-3">
+            {/* Background Watermark Text */}
+            <div
+              className="p-absolute top-50 left-50 translate-middle w-100 text-center pointer-events-none select-none z-0"
+              style={{
+                fontFamily: "var(--font-bricolage), sans-serif",
+                fontSize: "clamp(90px, 18vw, 260px)",
+                fontWeight: 800,
+                color: "rgba(205, 160, 82, 0.05)",
+                lineHeight: 0.9,
+                letterSpacing: "-0.04em",
+                userSelect: "none",
+                WebkitUserSelect: "none",
+                pointerEvents: "none",
+              }}
+            >
+              Jennifer
             </div>
-            <div className="col-lg-3 col-md-6 flex-column justify-content-lg-end d-none d-md-flex">
-              <p className="footer-2-follow-label text-white opacity-50 text-uppercase small mb-3">Follow Us</p>
-              <div className="at-footer-widget at-footer-link">
-                <div className="at-hero-social">
-                  {SOCIAL.map((s) => (
-                    <a key={s} href={s === "WhatsApp" ? SITE.whatsapp : "#"} target={s === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer">
-                      {s} <SocialArrow />
-                    </a>
-                  ))}
-                </div>
+
+            {/* 3 Columns */}
+            <div className="row g-4 p-relative z-1 align-items-start">
+              <div className="col-md-4 col-12">
+                <span
+                  className="d-block text-uppercase fw-500 mb-2"
+                  style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
+                >
+                  WHATSAPP / CALL
+                </span>
+                <a
+                  href={SITE.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="h4 fw-bold text-white text-decoration-none d-block mb-0"
+                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em" }}
+                >
+                  {SITE.phoneDisplay}
+                </a>
+              </div>
+
+              <div className="col-md-4 col-12">
+                <span
+                  className="d-block text-uppercase fw-500 mb-2"
+                  style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
+                >
+                  EMAIL
+                </span>
+                <a
+                  href={SITE.mailto}
+                  className="h4 fw-bold text-white text-decoration-none d-block mb-0 text-break"
+                  style={{ fontSize: "clamp(18px, 1.9vw, 24px)", letterSpacing: "-0.02em" }}
+                >
+                  {SITE.email}
+                </a>
+              </div>
+
+              <div className="col-md-4 col-12">
+                <span
+                  className="d-block text-uppercase fw-500 mb-2"
+                  style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
+                >
+                  VISIT
+                </span>
+                <span
+                  className="h4 fw-bold text-white d-block mb-0"
+                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em" }}
+                >
+                  {SITE.city}
+                </span>
               </div>
             </div>
           </div>
-          <div className="footer-2-border pt-40 pb-40">
-            <div className="row align-items-end g-4">
-              <div className="col-lg-10 col-md-8">
-                <span className="at-footer-copyright">Jenny&apos;s Fashion Home © 2026 · Harrington, Delaware</span>
-                <div className="at-title-anim overflow-hidden">
-                  <h2 className="footer-2-connect-title text-white mb-0 at-title-text text-scale-anim">Let&apos;s Connect</h2>
-                </div>
-              </div>
-              <div className="col-lg-2 col-md-4 text-end">
-                <div className="d-flex flex-wrap align-items-end gap-4 gap-md-5 mb-3">
-                  <div className="footer-2-hours text-white">
-                    <span className="d-block fz-font-md opacity-50">Mon - Sat</span>
-                    <h5 className="fw-400 common-white">9am - 6pm</h5>
-                  </div>
-                </div>
-              </div>
+
+          {/* Bottom Bar Footer */}
+          <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-4 mt-5 text-muted small border-top border-white border-opacity-10">
+            {/* Signature Logo */}
+            <div>
+              <span
+                style={{
+                  fontFamily: "var(--font-script), cursive",
+                  color: "#cda052",
+                  fontSize: "30px",
+                  lineHeight: 1,
+                }}
+              >
+                Jenny&apos;s Fashion Home
+              </span>
             </div>
-            <div className="row d-none d-md-block">
-              <div className="col-12">
-                <ul className="d-flex flex-wrap gap-lg-4 gap-2 ps-3 pt-4 pb-2">
-                  {SERVICES.map((s) => (
-                    <li key={s}>
-                      <AtBtn as="div" className="at-btn-border-white border-0 ps-2 pe-2 py-0 common-white opacity-50 bg-transparent rounded-0">
-                        {s}
-                      </AtBtn>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+
+            {/* Copyright Center */}
+            <div className="text-center opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
+              © {new Date().getFullYear()} {SITE.name} · {SITE.city}
+            </div>
+
+            {/* Back to top Link */}
+            <div>
+              <a
+                href="#top-hero"
+                onClick={scrollToTop}
+                className="text-decoration-none transition-all fw-medium"
+                style={{ color: "#cda052", fontSize: "13px", letterSpacing: "0.05em" }}
+              >
+                Back to top ↑
+              </a>
             </div>
           </div>
         </div>
