@@ -25,7 +25,7 @@ export default function Gallery() {
             <div className="col-xxl-4 col-lg-5 ms-auto d-flex flex-column align-items-lg-end gap-4">
               <div className="at_fade_anim" data-delay=".3">
                 <p className="mg-portfolio-dec mb-0 fz-font-lg text-lg-end">
-                  Racks of ready-to-wear, the gown wall, the sketch room and the machines — a walk through the boutique in
+                  Racks of ready-to-wear, the gown wall, the sketch room and the machines; a walk through the boutique in
                   Harrington, Delaware.
                 </p>
               </div>
