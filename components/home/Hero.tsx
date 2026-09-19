@@ -21,35 +21,52 @@ export default function Hero() {
           style={{ backgroundImage: "url(/assets/imgs/pages/noise.gif)" }}
         ></div>
 
-        <div className="container p-relative z-1 py-3 py-md-4">
-          <div className="row justify-content-center text-center">
-            <div className="col-xxl-10 col-xl-11 col-12">
-              {/* Enhanced Subheadline Badge */}
-              <div className="d-inline-flex flex-wrap align-items-center justify-content-center gap-2 mb-4 px-3 px-md-4 py-2-5 rounded-pill bg-black bg-opacity-50 border border-white border-opacity-20 backdrop-blur shadow-sm">
-                <HeroShape />
-                <span className="fz-font-md fw-500 text-white mb-0 text-center">
-                  Haute couture styling, curated fabrics, ready-to-wear collections & sewing machines. Styled, sourced and delivered by Jenny in Harrington, Delaware.
-                </span>
+        <div className="container p-relative z-1">
+          {/* Top Row: Storefront Image Card + Subheadline Text */}
+          <div className="row g-4 align-items-center mb-3 mb-md-4">
+            <div className="col-lg-5 col-md-6 col-12">
+              <div className="rounded-4 overflow-hidden border border-white border-opacity-20 shadow-lg" style={{ maxHeight: "220px" }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="/gallery/storefront.jpg"
+                  alt="Jenny's Fashion Home Storefront"
+                  className="w-100 d-block"
+                  style={{ height: "220px", objectFit: "cover" }}
+                />
               </div>
+            </div>
 
-              {/* Main Title Centered using Main Sans-Serif Font */}
-              <div className="at-title-anim overflow-hidden my-3 my-md-4">
-                <h1 className="jfh-hero-title fw-600 mb-0 at-title-text text-white text-center">
+            <div className="col-lg-7 col-md-6 col-12">
+              <div className="alt-hero-service at-hero-service">
+                <ul>
+                  <li>
+                    <HeroShape />
+                  </li>
+                  <li>
+                    <span className="fz-font-md fw-500 text-white">
+                      Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
+                      delivered to brands and makers.
+                    </span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Bottom Row: Main Title + Phone Number */}
+          <div className="row g-3 align-items-end mt-2">
+            <div className="col-12">
+              <div className="at-title-anim overflow-hidden">
+                <h1 className="jfh-hero-title fw-600 mb-0 at-title-text text-white">
                   Jenny&apos;s Fashion Home<sup className="fw-400">®</sup>
                 </h1>
               </div>
-
-              {/* Direct WhatsApp Contact Pill */}
-              <div className="mt-4 pt-2">
-                <a
-                  href={SITE.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="d-inline-flex align-items-center gap-2 px-4 py-3 rounded-pill bg-white bg-opacity-15 text-white border border-white border-opacity-25 backdrop-blur fz-font-lg fw-500 text-decoration-none transition-all shadow"
-                >
-                  <span className="jfh-whatsapp text-white fw-600">WhatsApp:</span>
-                  <span>[ {SITE.phoneDisplay} ]</span>
-                </a>
+              <div className="d-flex justify-content-end align-items-center mt-3">
+                <p className="fz-font-lg fw-500 mb-0 text-white">
+                  <a href={SITE.whatsapp} target="_blank" rel="noopener noreferrer" className="jfh-whatsapp text-decoration-none">
+                    [ {SITE.phoneDisplay} ]
+                  </a>
+                </p>
               </div>
             </div>
           </div>
@@ -58,4 +75,5 @@ export default function Hero() {
     </section>
   );
 }
+
 
