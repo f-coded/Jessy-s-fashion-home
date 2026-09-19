@@ -7,8 +7,8 @@ import GalleryLightbox from "./GalleryLightbox";
 
 // Supplementary curated lookbook images to offer a rich full visual gallery experience
 const EXTRA_LOOKS: GalleryItem[] = [
-  { id: "extra-couture-1", src: "/assets/imgs/pages/work-1.jpg", caption: "Haute Couture Gown — Velvet & Gold Embroidery", addedAt: "2026-09-18T00:00:00.000Z" },
-  { id: "extra-couture-2", src: "/assets/imgs/pages/work-2.jpg", caption: "Silk Runway Collection — Spring Edition", addedAt: "2026-09-18T00:00:00.000Z" },
+  { id: "extra-couture-1", src: "/assets/imgs/pages/work-1.jpg", caption: "Haute Couture Gown: Velvet & Gold Embroidery", addedAt: "2026-09-18T00:00:00.000Z" },
+  { id: "extra-couture-2", src: "/assets/imgs/pages/work-2.jpg", caption: "Silk Runway Collection: Spring Edition", addedAt: "2026-09-18T00:00:00.000Z" },
   { id: "extra-couture-3", src: "/assets/imgs/pages/work-3.jpg", caption: "Bespoke Bridal Fitting in Studio", addedAt: "2026-09-18T00:00:00.000Z" },
   { id: "extra-couture-4", src: "/assets/imgs/pages/work-4.jpg", caption: "Ready-to-Wear Evening Collection", addedAt: "2026-09-18T00:00:00.000Z" },
   { id: "extra-couture-5", src: "/assets/imgs/pages/work-5.jpg", caption: "Custom Tailoring & Pattern Cutting", addedAt: "2026-09-18T00:00:00.000Z" },

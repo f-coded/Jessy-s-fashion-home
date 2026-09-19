@@ -2,7 +2,7 @@
 export const SITE = {
   name: "Jenny's Fashion Home",
   short: "Jenny's",
-  tagline: "Styled by Jenny — Fashion, Fabrics & Sewing Machines, Delivered.",
+  tagline: "Styled by Jenny: Fashion, Fabrics & Sewing Machines, Delivered.",
   city: "Harrington, Delaware",
   addressLine1: "Harrington, Delaware",
   addressLine2: "United States",

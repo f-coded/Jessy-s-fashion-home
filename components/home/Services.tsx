@@ -4,28 +4,28 @@ import SplitText from "@/components/ui/SplitText";
 const SERVICES = [
   {
     title: "Personal Styling",
-    desc: "Styling is where Jenny began. From a first consultation to the final fitting, she builds looks around who you are—your shape, your occasion, your story—so every piece feels unmistakably you.",
+    desc: "Styling is where Jenny began. From a first consultation to the final fitting, she builds looks around who you are (your shape, your occasion, your story) so every piece feels unmistakably you.",
     listA: ["Style Consultations", "Wardrobe Edits & Capsules", "Event & Bridal Looks"],
     listB: ["Artist & Stage Styling", "Fittings & Alterations", "Shop-the-look Sourcing"],
     img: "/assets/imgs/pages/service-1.jpg",
   },
   {
     title: "Haute Couture",
-    desc: "One-of-a-kind pieces, sketched, patterned and finished in the mannequin sketch studio. Statement gowns and custom silhouettes for clients, artists and red-carpet moments",
+    desc: "One-of-a-kind pieces, sketched, patterned and finished in the mannequin sketch studio. Statement gowns and custom silhouettes for clients, artists and red-carpet moments.",
     listA: ["Sketch & Mood Boards", "Pattern Making", "Hand Finishing"],
     listB: ["Custom Gowns", "Fittings & Tailoring"],
     img: "/assets/imgs/pages/service-4.jpg",
   },
   {
     title: "Fabrics & RTW",
-    desc: "The supply side of the house. Curated fabrics, textiles and ready-to-wear collections sourced for brands, designers and artists—delivered in the quantities you need, when you need them",
+    desc: "The supply side of the house. Curated fabrics, textiles and ready-to-wear collections sourced for brands, designers and artists, delivered in the quantities you need, when you need them.",
     listA: ["Fabrics & Textiles", "Ready-to-Wear Supply", "Trims, Threads & Notions"],
     listB: ["Bulk & Wholesale Orders", "Delivery Across Delaware & Beyond"],
     img: "/assets/imgs/pages/service-2.jpg",
   },
   {
     title: "Sewing Machines",
-    desc: "Creative tools for every maker. Domestic and industrial sewing machines, sergers and accessories from the brands Jenny trusts—with guidance on the right machine for your work",
+    desc: "Creative tools for every maker. Domestic and industrial sewing machines, sergers and accessories from the brands Jenny trusts, complete with guidance on selecting the right machine.",
     listA: ["Domestic & Industrial Machines", "Sergers & Overlockers", "Presser Feet & Accessories"],
     listB: ["Setup & Guidance", "Bulk Supply for Studios"],
     img: "/assets/imgs/pages/service-3.jpg",

@@ -32,7 +32,7 @@ export default function Hero() {
                   </li>
                   <li>
                     <span className="fz-font-md fw-500 text-white">
-                      Styled by Jenny — haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
+                      Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
                       delivered to brands and makers.
                     </span>
                   </li>

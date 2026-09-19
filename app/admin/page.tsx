@@ -4,7 +4,7 @@ import AdminGallery from "./AdminGallery";
 import "./admin.css";
 
 export const dynamic = "force-dynamic";
-export const metadata = { title: "Gallery admin — Jenny's Fashion Home", robots: { index: false, follow: false } };
+export const metadata = { title: "Gallery Admin | Jenny's Fashion Home", robots: { index: false, follow: false } };
 
 /**
  * Lightweight password-protected upload page for the gallery.
@@ -33,7 +33,7 @@ export default async function AdminPage({ searchParams }: { searchParams: Promis
         <form className="jfh-admin__card" method="post" action="/api/admin/login">
           <h1>Gallery admin</h1>
           <p>Sign in to add or remove store photos.</p>
-          {params.error && <p className="jfh-admin__warn">Wrong password — try again.</p>}
+          {params.error && <p className="jfh-admin__warn">Wrong password, please try again.</p>}
           <label>
             Password
             <input type="password" name="password" autoFocus required />

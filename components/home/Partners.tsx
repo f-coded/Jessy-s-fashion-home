@@ -15,7 +15,7 @@ export default function Partners() {
                 Brands we carry
               </AtBtn>
               <h4 className="at-section-title reveal-text">
-                <SplitText text="The fabrics, machines and labels Jenny trusts — supplied to brands, artists and makers." />
+                <SplitText text="The fabrics, machines and labels Jenny trusts, supplied to brands, artists and makers." />
               </h4>
             </div>
           </div>

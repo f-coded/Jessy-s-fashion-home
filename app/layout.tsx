@@ -26,7 +26,7 @@ const greatVibes = Great_Vibes({
 });
 
 export const metadata: Metadata = {
-  title: "Jenny's Fashion Home — Styling, Fabrics & Sewing Machines | Harrington, DE",
+  title: "Jenny's Fashion Home | Styling, Fabrics & Sewing Machines | Harrington, DE",
   description:
     "Jenny's Fashion Home in Harrington, Delaware: haute couture styling by Jenny, plus fabrics, ready-to-wear and sewing machines supplied to brands, artists and makers.",
   icons: { icon: "/assets/imgs/logo/favicon.svg" },

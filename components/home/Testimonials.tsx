@@ -5,7 +5,7 @@ import { FiveStars } from "@/components/ui/Icons";
 
 const ITEMS = [
   {
-    text: "“Jenny didn’t just dress me for the show — she built the whole look around my set. Every fitting was precise, every fabric was right.”",
+    text: "“Jenny didn’t just dress me for the show; she built the whole look around my set. Every fitting was precise, every fabric was right.”",
     name: "Amara D.",
     role: "Recording Artist",
     company: "Wilmington, Delaware",
@@ -19,7 +19,7 @@ const ITEMS = [
     avatar: "/assets/imgs/avatar/avatar-2.jpg",
   },
   {
-    text: "“My wedding gown was sketched, fitted and finished in her studio. It felt couture in every sense — and so completely me.”",
+    text: "“My wedding gown was sketched, fitted and finished in her studio. It felt couture in every sense and so completely me.”",
     name: "Hannah Lee",
     role: "Bridal Client",
     company: "Harrington, Delaware",

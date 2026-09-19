@@ -53,7 +53,7 @@ export default function Banner() {
                 </h2>
                 <p className="text-white mb-0">
                   Nestled in the heart of Harrington, Delaware, Jenny&apos;s Fashion Home is where timeless elegance meets everyday
-                  glamour. Jenny started as a stylist and fashionista, dressing clients and artists in one-of-a-kind haute couture —
+                  glamour. Jenny started as a stylist and fashionista, dressing clients and artists in one-of-a-kind haute couture,
                   and grew that eye into a business that now supplies fabrics, ready-to-wear and sewing machines to brands,
                   artists and makers.
                   <br className="d-xxl-block d-lg-none d-none" /> Step in, browse, and find something that&apos;s unmistakably you.

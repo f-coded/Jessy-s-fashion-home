@@ -192,7 +192,7 @@ export default function Portfolio() {
                 <PrimaryLogoMark />
                 <div className="at_fade_anim" data-delay=".3">
                   <p className="mg-portfolio-dec mb-30 fz-font-lg">
-                    A look inside the house — the storefront, the gown wall, the sketch studio and the machines that keep
+                    A look inside the house: the storefront, the gown wall, the sketch studio and the machines that keep
                     Delaware&apos;s makers sewing.
                   </p>
                 </div>
