@@ -293,17 +293,16 @@ h1, h2, h3, h4, h5, h6,
   filter: none;
 }
 
-/* Hero title: script "Jenny's" + grotesque "Fashion Home" */
-.hero-title-script {
-  font-family: var(--at-ff-script);
-  font-weight: 400;
-  color: var(--at-theme-primary);
-  letter-spacing: 0;
-  margin-right: 0.12em;
-  /* keep the script glyphs from enlarging the line box (would reveal the hover shadow copy) */
-  display: inline-block;
-  line-height: 0.55;
-  vertical-align: -0.04em;
+/* Hero title & layout */
+.jfh-hero-title {
+  font-size: clamp(2.2rem, 7.5vw, 9rem);
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  font-family: var(--at-ff-heading);
+}
+.jfh-hero-title sup {
+  font-size: 0.4em;
+  vertical-align: super;
 }
 .jfh-hero .at-title-anim {
   line-height: 1.1;
