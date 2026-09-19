@@ -22,15 +22,15 @@ export default function Hero() {
         ></div>
 
         <div className="container p-relative z-1">
-          {/* Top Row: Subheadline Text & Icon Centered */}
-          <div className="row justify-content-center text-center mb-4 mb-md-5">
-            <div className="col-xxl-8 col-xl-9 col-lg-10 col-12 text-center">
-              <div className="at-hero-service pb-3 pb-md-4 border-bottom border-white border-opacity-30">
-                <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+          {/* Top Row: Subheadline Text & Icon Centered container with left-aligned text */}
+          <div className="row justify-content-center mb-4 mb-md-5">
+            <div className="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-12">
+              <div className="at-hero-service pb-3 pb-md-4 border-bottom border-white border-opacity-20" style={{ borderBottomColor: "rgba(255, 255, 255, 0.18)" }}>
+                <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-start mx-auto" style={{ maxWidth: "480px" }}>
                   <HeroShape />
-                  <span className="fz-font-md fw-500 text-white text-center lh-base">
+                  <p className="fz-font-md fw-500 text-white text-start lh-base mb-0">
                     Bespoke haute couture, designer fabrics, ready-to-wear fashion and sewing machine supplies for brands, artists and makers worldwide.
-                  </span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -40,8 +40,8 @@ export default function Hero() {
           <div className="row justify-content-center text-center mt-2">
             <div className="col-12">
               <div className="at-title-anim overflow-hidden text-center">
-                <h1 className="jfh-hero-title fw-600 mb-0 at-title-text text-white text-center">
-                  Jenny&apos;s Fashion Home<sup className="fw-400">®</sup>
+                <h1 className="jfh-hero-title fw-400 mb-0 at-title-text text-white text-center" style={{ fontWeight: 400 }}>
+                  Jenny&apos;s Fashion Home<sup className="fw-300">®</sup>
                 </h1>
               </div>
               <div className="d-flex justify-content-center justify-content-md-end align-items-center mt-4">

@@ -482,7 +482,7 @@ h1, h2, h3, h4, h5, h6,
   background: linear-gradient(180deg, rgba(13, 12, 10, 0.55) 0%, rgba(13, 12, 10, 0.35) 45%, rgba(13, 12, 10, 0.8) 100%);
 }
 .jfh-hero .at-hero-service {
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: rgba(255, 255, 255, 0.18);
 }
 .jfh-hero .common-black {
   color: #fff !important;
