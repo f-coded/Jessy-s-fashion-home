@@ -81,21 +81,30 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Thin Divider Line */}
-          <div className="my-5" style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.12)" }}></div>
+          {/* SINGLE SUBTLE DIVIDER LINE (NOT WHITE, DARK MUTED TONE) */}
+          <div
+            className="my-5"
+            style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}
+          ></div>
 
-          {/* 3-Column Contact Details + Giant Background Watermark */}
-          <div className="p-relative my-5 py-3">
-            {/* Background Watermark Text */}
+          {/* LOWER FOOTER SECTION WITH GIANT GRADIENT WATERMARK */}
+          <div className="p-relative pt-3 pb-2">
+            {/* Giant Centered Watermark "Jennifer" with Vertical Fade Gradient to Transparent */}
             <div
-              className="p-absolute top-50 left-50 translate-middle w-100 text-center pointer-events-none select-none z-0"
+              className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
               style={{
+                top: "-15px",
                 fontFamily: "var(--font-bricolage), sans-serif",
-                fontSize: "clamp(90px, 18vw, 260px)",
+                fontSize: "clamp(110px, 20vw, 300px)",
                 fontWeight: 800,
-                color: "rgba(205, 160, 82, 0.05)",
-                lineHeight: 0.9,
+                lineHeight: 0.85,
                 letterSpacing: "-0.04em",
+                background:
+                  "linear-gradient(180deg, rgba(205, 160, 82, 0.16) 0%, rgba(205, 160, 82, 0.06) 45%, rgba(14, 13, 11, 0) 95%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
                 userSelect: "none",
                 WebkitUserSelect: "none",
                 pointerEvents: "none",
@@ -104,8 +113,8 @@ export default function Footer() {
               Jennifer
             </div>
 
-            {/* 3 Columns */}
-            <div className="row g-4 p-relative z-1 align-items-start">
+            {/* 3 Columns Contact Info */}
+            <div className="row g-4 p-relative z-1 align-items-start mb-5 pb-3">
               <div className="col-md-4 col-12">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
@@ -155,39 +164,39 @@ export default function Footer() {
                 </span>
               </div>
             </div>
-          </div>
 
-          {/* Bottom Bar Footer */}
-          <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-4 mt-5 text-muted small border-top border-white border-opacity-10">
-            {/* Signature Logo */}
-            <div>
-              <span
-                style={{
-                  fontFamily: "var(--font-script), cursive",
-                  color: "#cda052",
-                  fontSize: "30px",
-                  lineHeight: 1,
-                }}
-              >
-                Jenny&apos;s Fashion Home
-              </span>
-            </div>
+            {/* Bottom Bar Footer (NO LINE ABOVE IT) */}
+            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-3 p-relative z-1 text-muted small">
+              {/* Signature Logo */}
+              <div>
+                <span
+                  style={{
+                    fontFamily: "var(--font-script), cursive",
+                    color: "#cda052",
+                    fontSize: "30px",
+                    lineHeight: 1,
+                  }}
+                >
+                  Jenny&apos;s Fashion Home
+                </span>
+              </div>
 
-            {/* Copyright Center */}
-            <div className="text-center opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
-              © {new Date().getFullYear()} {SITE.name} · {SITE.city}
-            </div>
+              {/* Copyright Center */}
+              <div className="text-center opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
+                © {new Date().getFullYear()} {SITE.name} · {SITE.city}
+              </div>
 
-            {/* Back to top Link */}
-            <div>
-              <a
-                href="#top-hero"
-                onClick={scrollToTop}
-                className="text-decoration-none transition-all fw-medium"
-                style={{ color: "#cda052", fontSize: "13px", letterSpacing: "0.05em" }}
-              >
-                Back to top ↑
-              </a>
+              {/* Back to top Link */}
+              <div>
+                <a
+                  href="#top-hero"
+                  onClick={scrollToTop}
+                  className="text-decoration-none transition-all fw-medium"
+                  style={{ color: "#cda052", fontSize: "13px", letterSpacing: "0.05em" }}
+                >
+                  Back to top ↑
+                </a>
+              </div>
             </div>
           </div>
         </div>
