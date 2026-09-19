@@ -113,9 +113,9 @@ export default function Footer() {
               Jennifer
             </div>
 
-            {/* 3 Columns Contact Info */}
+            {/* 3 Columns Contact Info (Centered on mobile, left-aligned on desktop) */}
             <div className="row g-4 p-relative z-1 align-items-start mb-5 pb-3">
-              <div className="col-md-4 col-12">
+              <div className="col-md-4 col-12 text-center text-md-start">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
                   style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
@@ -126,14 +126,14 @@ export default function Footer() {
                   href={SITE.whatsapp}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="h4 fw-bold text-white text-decoration-none d-block mb-0"
-                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em" }}
+                  className="h4 fw-medium text-white text-decoration-none d-block mb-0"
+                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em", fontWeight: 500 }}
                 >
                   {SITE.phoneDisplay}
                 </a>
               </div>
 
-              <div className="col-md-4 col-12">
+              <div className="col-md-4 col-12 text-center text-md-start">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
                   style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
@@ -142,14 +142,14 @@ export default function Footer() {
                 </span>
                 <a
                   href={SITE.mailto}
-                  className="h4 fw-bold text-white text-decoration-none d-block mb-0 text-break"
-                  style={{ fontSize: "clamp(18px, 1.9vw, 24px)", letterSpacing: "-0.02em" }}
+                  className="h4 fw-medium text-white text-decoration-none d-block mb-0 text-break"
+                  style={{ fontSize: "clamp(18px, 1.9vw, 24px)", letterSpacing: "-0.02em", fontWeight: 500 }}
                 >
                   {SITE.email}
                 </a>
               </div>
 
-              <div className="col-md-4 col-12">
+              <div className="col-md-4 col-12 text-center text-md-start">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
                   style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
@@ -157,8 +157,8 @@ export default function Footer() {
                   VISIT
                 </span>
                 <span
-                  className="h4 fw-bold text-white d-block mb-0"
-                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em" }}
+                  className="h4 fw-medium text-white d-block mb-0"
+                  style={{ fontSize: "clamp(20px, 2.2vw, 26px)", letterSpacing: "-0.02em", fontWeight: 500 }}
                 >
                   {SITE.city}
                 </span>
