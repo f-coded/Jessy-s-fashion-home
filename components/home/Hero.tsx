@@ -25,12 +25,14 @@ export default function Hero() {
           {/* Top Row: Subheadline Text & Icon Centered */}
           <div className="row justify-content-center text-center mb-4 mb-md-5">
             <div className="col-xxl-8 col-xl-9 col-lg-10 col-12 text-center">
-              <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center">
-                <HeroShape />
-                <span className="fz-font-md fw-500 text-white text-center lh-base">
-                  Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
-                  delivered to brands and makers.
-                </span>
+              <div className="at-hero-service pb-3 pb-md-4 border-bottom border-white border-opacity-30">
+                <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center">
+                  <HeroShape />
+                  <span className="fz-font-md fw-500 text-white text-center lh-base">
+                    Styled by Jenny: haute couture looks for clients and artists, plus fabrics, ready-to-wear and sewing machines
+                    delivered to brands and makers.
+                  </span>
+                </div>
               </div>
             </div>
           </div>
