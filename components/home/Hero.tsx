@@ -22,21 +22,9 @@ export default function Hero() {
         ></div>
 
         <div className="container p-relative z-1">
-          {/* Top Row: Storefront Image Card + Subheadline Text */}
+          {/* Top Row: Subheadline Text with Icon */}
           <div className="row g-4 align-items-center mb-3 mb-md-4">
-            <div className="col-lg-5 col-md-6 col-12">
-              <div className="rounded-4 overflow-hidden border border-white border-opacity-20 shadow-lg" style={{ maxHeight: "220px" }}>
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src="/gallery/storefront.jpg"
-                  alt="Jenny's Fashion Home Storefront"
-                  className="w-100 d-block"
-                  style={{ height: "220px", objectFit: "cover" }}
-                />
-              </div>
-            </div>
-
-            <div className="col-lg-7 col-md-6 col-12">
+            <div className="col-xxl-6 col-xl-7 col-lg-8 col-12">
               <div className="alt-hero-service at-hero-service">
                 <ul>
                   <li>
