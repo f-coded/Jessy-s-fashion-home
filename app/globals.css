@@ -556,6 +556,38 @@ h1, h2, h3, h4, h5, h6,
   transition: none;
 }
 
+/* Inside The House animation & arrow vertical alignment */
+.jfh-star-rotate {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transform-origin: center center;
+  animation: rotate-infinite 12s linear infinite;
+}
+.jfh-star-rotate svg {
+  width: clamp(28px, 4.5vw, 75px);
+  height: clamp(28px, 4.5vw, 75px);
+  display: block;
+}
+
+.jfh-arrow-shift {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  vertical-align: middle;
+  transform: translateY(0.28em);
+  transition: transform 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+}
+.jfh-arrow-shift svg {
+  width: clamp(28px, 4.5vw, 75px);
+  height: clamp(28px, 4.5vw, 75px);
+  display: block;
+}
+.alt-portfolio-main-title:hover .jfh-arrow-shift {
+  transform: translateY(0.28em) translateX(12px);
+}
+
 .mfp-iframe-scaler video {
   position: absolute;
   inset: 0;

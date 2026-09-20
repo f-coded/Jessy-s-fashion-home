@@ -128,15 +128,15 @@ export default function Portfolio() {
               <div className="alt-portfolio-main-title-wrap portfolio-text">
                 <h1
                   className="alt-portfolio-main-title reveal-text fz-ds-1 fw-500 text-white"
-                  style={{ fontSize: "clamp(42px, 7vw, 90px)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
+                  style={{ fontSize: "clamp(38px, 6.5vw, 90px)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
                 >
                   Inside
-                  <span className="d-inline-block mx-2 opacity-75">
+                  <span className="jfh-star-rotate d-inline-flex opacity-75 mx-2">
                     <BigStar122 />
                   </span>
                   The
                   <br /> House
-                  <span className="d-inline-block ms-3 opacity-75">
+                  <span className="jfh-arrow-shift d-inline-flex opacity-75 ms-2 ms-md-3">
                     <BigArrow104 />
                   </span>
                 </h1>

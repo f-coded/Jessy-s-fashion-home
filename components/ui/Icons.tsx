@@ -130,7 +130,7 @@ export const CardShape = () => (
 );
 
 export const BigStar122 = () => (
-  <svg className="d-none d-lg-inline-flex" xmlns="http://www.w3.org/2000/svg" width="122" height="122" viewBox="0 0 122 122" fill="none">
+  <svg xmlns="http://www.w3.org/2000/svg" width="122" height="122" viewBox="0 0 122 122" fill="none">
     <path
       fillRule="evenodd"
       clipRule="evenodd"
