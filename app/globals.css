@@ -300,7 +300,7 @@ h1, h2, h3, h4, h5, h6,
 
 /* Hero title & layout */
 .jfh-hero-title {
-  font-size: clamp(2.2rem, 7.5vw, 9rem);
+  font-size: clamp(1.4rem, 6.2vw, 9rem);
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-family: var(--at-ff-heading);
@@ -311,6 +311,24 @@ h1, h2, h3, h4, h5, h6,
 }
 .jfh-hero .at-title-anim {
   line-height: 1.1;
+}
+
+@media (max-width: 575.98px) {
+  .jfh-hero-title {
+    font-size: clamp(1.35rem, 5.8vw, 2.2rem);
+    white-space: nowrap;
+  }
+  .jfh-hero-title .char,
+  .jfh-hero .at-title-text .char {
+    text-shadow: none !important;
+  }
+  .jfh-hero-desc {
+    font-size: 17px !important;
+    line-height: 1.55 !important;
+    max-width: 330px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 /* Gallery section */
@@ -465,7 +483,25 @@ h1, h2, h3, h4, h5, h6,
 
 /* WhatsApp accent */
 .jfh-whatsapp {
-  color: var(--at-theme-primary) !important;
+  color: #ffffff !important;
+  transition: all 0.3s ease;
+  padding: 6px 18px;
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(6px);
+}
+.jfh-whatsapp:hover {
+  background: var(--at-theme-primary) !important;
+  border-color: var(--at-theme-primary) !important;
+  color: #141210 !important;
+}
+.jfh-whatsapp svg {
+  color: #25d366;
+  transition: color 0.3s ease;
+}
+.jfh-whatsapp:hover svg {
+  color: #141210;
 }
 
 /* Hero video backdrop */
