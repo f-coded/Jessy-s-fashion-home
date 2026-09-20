@@ -90,17 +90,24 @@ export function initPins(): () => void {
       const items = Array.from(wrapper.querySelectorAll<HTMLElement>(".item"));
       if (!items.length) return;
 
-      // First item visible, upcoming items hidden (opacity 0) so no peeking edges appear
-      gsap.set(items[0], { minHeight: "auto", height: "auto", opacity: 1, scale: 1 });
+      // Item 0 is 100% solid & visible; upcoming items sit below with visibility hidden
+      gsap.set(items[0], { minHeight: "auto", height: "auto", opacity: 1, yPercent: 0, visibility: "visible" });
       items.forEach((it, i) => {
         if (i !== 0) {
-          gsap.set(it, { yPercent: 50, opacity: 0, scale: 0.96 });
+          gsap.set(it, { yPercent: 100, opacity: 1, visibility: "hidden" });
         }
       });
 
       const setActive = (progress: number) => {
         const idx = Math.min(Math.floor(Math.min(Math.max(progress, 0), 0.9999) * items.length), items.length - 1);
-        items.forEach((it, i) => it.classList.toggle("active", i === idx));
+        items.forEach((it, i) => {
+          it.classList.toggle("active", i === idx);
+          if (i > idx) {
+            gsap.set(it, { visibility: "hidden" });
+          } else {
+            gsap.set(it, { visibility: "visible" });
+          }
+        });
       };
 
       const tl = gsap.timeline({
@@ -118,12 +125,16 @@ export function initPins(): () => void {
 
       items.forEach((it, i) => {
         if (items[i + 1]) {
-          tl.to(it, { scale: 0.98, opacity: 0.9 }, ">");
-          tl.fromTo(
+          tl.to(
             items[i + 1],
-            { yPercent: 50, opacity: 0, scale: 0.96 },
-            { yPercent: 0, opacity: 1, scale: 1, duration: 1 },
-            "<"
+            {
+              yPercent: 0,
+              duration: 1,
+              onStart: () => {
+                gsap.set(items[i + 1], { visibility: "visible" });
+              },
+            },
+            `>+=${0.1}`
           );
         }
       });
