@@ -163,11 +163,41 @@ export default function Footer() {
       id="footer"
       style={{ backgroundColor: "#0e0d0b" }}
     >
+      {/* Full-width Giant Centered Watermark "Jennifer" (Zero top or side clipping) */}
+      <div
+        ref={watermarkRef}
+        className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
+        style={{
+          bottom: "-10px",
+          width: "100%",
+          maxWidth: "100vw",
+          padding: "0.25em 0.15em",
+          boxSizing: "border-box",
+          whiteSpace: "nowrap",
+          fontFamily: "var(--font-bricolage), sans-serif",
+          fontSize: "clamp(90px, 17.5vw, 330px)",
+          fontWeight: 800,
+          lineHeight: 0.95,
+          letterSpacing: "-0.04em",
+          background:
+            "linear-gradient(180deg, rgba(205, 160, 82, 0.18) 0%, rgba(205, 160, 82, 0.08) 55%, rgba(14, 13, 11, 0.01) 98%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+          color: "transparent",
+          userSelect: "none",
+          WebkitUserSelect: "none",
+          pointerEvents: "none",
+        }}
+      >
+        Jennifer
+      </div>
+
       <div className="at-footer-area pt-100 pb-40 p-relative z-1">
         <div className="container">
           {/* Top Contact Section */}
           <div className="text-center mb-5">
-            {/* Main Headline (Bigger & Bold) */}
+            {/* Main Headline */}
             <h2
               ref={titleTextRef}
               className="display-2 fw-bold text-white mb-4 d-inline-flex flex-wrap align-items-center justify-content-center gap-2"
@@ -235,35 +265,8 @@ export default function Footer() {
             style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}
           ></div>
 
-          {/* LOWER FOOTER SECTION WITH GIANT GRADIENT WATERMARK */}
+          {/* LOWER FOOTER SECTION */}
           <div className="p-relative pt-3 pb-2">
-            {/* Giant Centered Watermark "Jennifer" (Unclipped nowrap) */}
-            <div
-              ref={watermarkRef}
-              className="p-absolute start-50 translate-middle-x pointer-events-none select-none z-0"
-              style={{
-                top: "-35px",
-                width: "max-content",
-                whiteSpace: "nowrap",
-                fontFamily: "var(--font-bricolage), sans-serif",
-                fontSize: "clamp(100px, 19.5vw, 360px)",
-                fontWeight: 800,
-                lineHeight: 0.82,
-                letterSpacing: "-0.04em",
-                background:
-                  "linear-gradient(180deg, rgba(205, 160, 82, 0.18) 0%, rgba(205, 160, 82, 0.08) 55%, rgba(14, 13, 11, 0.01) 98%)",
-                WebkitBackgroundClip: "text",
-                WebkitTextFillColor: "transparent",
-                backgroundClip: "text",
-                color: "transparent",
-                userSelect: "none",
-                WebkitUserSelect: "none",
-                pointerEvents: "none",
-              }}
-            >
-              Jennifer
-            </div>
-
             {/* 3 Columns Contact Info */}
             <div className="row g-4 p-relative z-1 align-items-start mb-5 pb-3">
               <div ref={col1Ref} className="col-md-4 col-12 text-center text-md-start">
