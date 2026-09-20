@@ -163,36 +163,6 @@ export default function Footer() {
       id="footer"
       style={{ backgroundColor: "#0e0d0b" }}
     >
-      {/* Full-width Giant Centered Watermark "Jennifer" (Zero top or side clipping) */}
-      <div
-        ref={watermarkRef}
-        className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
-        style={{
-          bottom: "-10px",
-          width: "100%",
-          maxWidth: "100vw",
-          padding: "0.25em 0.15em",
-          boxSizing: "border-box",
-          whiteSpace: "nowrap",
-          fontFamily: "var(--font-bricolage), sans-serif",
-          fontSize: "clamp(115px, 24vw, 440px)",
-          fontWeight: 800,
-          lineHeight: 0.95,
-          letterSpacing: "-0.04em",
-          background:
-            "linear-gradient(180deg, rgba(205, 160, 82, 0.18) 0%, rgba(205, 160, 82, 0.08) 55%, rgba(14, 13, 11, 0.01) 98%)",
-          WebkitBackgroundClip: "text",
-          WebkitTextFillColor: "transparent",
-          backgroundClip: "text",
-          color: "transparent",
-          userSelect: "none",
-          WebkitUserSelect: "none",
-          pointerEvents: "none",
-        }}
-      >
-        Jennifer
-      </div>
-
       <div className="at-footer-area pt-100 pb-40 p-relative z-1">
         <div className="container">
           {/* Top Contact Section */}
@@ -264,8 +234,36 @@ export default function Footer() {
             style={{ borderBottom: "1px solid rgba(255, 255, 255, 0.08)" }}
           ></div>
 
-          {/* LOWER FOOTER SECTION */}
+          {/* LOWER FOOTER SECTION WITH GIANT GRADIENT WATERMARK */}
           <div className="p-relative pt-3 pb-2">
+            {/* Giant Centered Watermark "Jennifer" (Fades to 100% transparent down) */}
+            <div
+              ref={watermarkRef}
+              className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
+              style={{
+                top: "-25px",
+                width: "100%",
+                maxWidth: "100vw",
+                padding: "0.2em 0.1em",
+                boxSizing: "border-box",
+                whiteSpace: "nowrap",
+                fontFamily: "var(--font-bricolage), sans-serif",
+                fontSize: "clamp(120px, 25vw, 420px)",
+                fontWeight: 800,
+                lineHeight: 0.85,
+                letterSpacing: "-0.04em",
+                background:
+                  "linear-gradient(180deg, rgba(205, 160, 82, 0.22) 0%, rgba(205, 160, 82, 0.08) 50%, rgba(14, 13, 11, 0) 92%)",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                color: "transparent",
+                userSelect: "none",
+                pointerEvents: "none",
+              }}
+            >
+              Jennifer
+            </div>
             {/* 3 Columns Contact Info */}
             <div className="row g-4 p-relative z-1 align-items-start mb-5 pb-3">
               <div ref={col1Ref} className="col-md-4 col-12 text-center text-md-start">
