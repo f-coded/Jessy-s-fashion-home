@@ -35,230 +35,129 @@ export default function Footer() {
     if (!footerRef.current) return;
 
     const ctx = gsap.context(() => {
+      // Use the scrolling footer-placeholder in the DOM flow as trigger
+      const triggerTarget = document.querySelector(".footer-placeholder") || footerRef.current;
+
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerTarget,
+          start: "top 75%",
+          toggleActions: "play none none reverse",
+          invalidateOnRefresh: true,
+        },
+      });
+
       // 1. Tag (05) CONTACT - letter tracking expand & drop down
       if (tagRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           tagRef.current,
           { opacity: 0, y: -25, letterSpacing: "0.4em" },
-          {
-            opacity: 1,
-            y: 0,
-            letterSpacing: "0.18em",
-            duration: 1,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: tagRef.current,
-              start: "top 88%",
-            },
-          }
+          { opacity: 1, y: 0, letterSpacing: "0.18em", duration: 0.8, ease: "back.out(1.7)" },
+          0
         );
       }
 
       // 2. Main Title: "Let's make it" rise & "yours." flourish spin
       if (titleTextRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           titleTextRef.current,
           { opacity: 0, y: 50, rotateX: -30 },
-          {
-            opacity: 1,
-            y: 0,
-            rotateX: 0,
-            duration: 1.2,
-            ease: "power4.out",
-            scrollTrigger: {
-              trigger: titleTextRef.current,
-              start: "top 85%",
-            },
-          }
+          { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: "power4.out" },
+          0.15
         );
       }
       if (titleScriptRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           titleScriptRef.current,
           { opacity: 0, scale: 0.5, rotate: -15, y: 30 },
-          {
-            opacity: 1,
-            scale: 1,
-            rotate: 0,
-            y: 0,
-            duration: 1.3,
-            delay: 0.25,
-            ease: "elastic.out(1, 0.6)",
-            scrollTrigger: {
-              trigger: titleTextRef.current,
-              start: "top 85%",
-            },
-          }
+          { opacity: 1, scale: 1, rotate: 0, y: 0, duration: 1.1, ease: "elastic.out(1, 0.6)" },
+          0.3
         );
       }
 
       // 3. WhatsApp Pill Button - pop & magnetic bounce
       if (btnRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           btnRef.current,
           { opacity: 0, scale: 0.6, y: 30 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 1,
-            delay: 0.35,
-            ease: "back.out(2)",
-            scrollTrigger: {
-              trigger: btnRef.current,
-              start: "top 90%",
-            },
-          }
+          { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "back.out(2)" },
+          0.4
         );
       }
 
       // 4. Single Divider Line - expand out from center
       if (lineRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           lineRef.current,
           { scaleX: 0, transformOrigin: "center center", opacity: 0 },
-          {
-            scaleX: 1,
-            opacity: 1,
-            duration: 1.3,
-            ease: "power3.inOut",
-            scrollTrigger: {
-              trigger: lineRef.current,
-              start: "top 90%",
-            },
-          }
+          { scaleX: 1, opacity: 1, duration: 1.1, ease: "power3.inOut" },
+          0.5
         );
       }
 
       // 5. Giant Watermark "Jennifer" - deep parallax zoom fade
       if (watermarkRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           watermarkRef.current,
-          { opacity: 0, scale: 1.2, y: 80 },
-          {
-            opacity: 1,
-            scale: 1,
-            y: 0,
-            duration: 1.8,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: watermarkRef.current,
-              start: "top 92%",
-            },
-          }
+          { opacity: 0, scale: 1.25, y: 80 },
+          { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: "power2.out" },
+          0.55
         );
       }
 
       // 6. 3 Contact Columns - 3 distinct entries: Left slide, Bottom lift, Right slide
       if (col1Ref.current) {
-        gsap.fromTo(
+        tl.fromTo(
           col1Ref.current,
           { opacity: 0, x: -60, skewX: 5 },
-          {
-            opacity: 1,
-            x: 0,
-            skewX: 0,
-            duration: 1.1,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: col1Ref.current,
-              start: "top 88%",
-            },
-          }
+          { opacity: 1, x: 0, skewX: 0, duration: 0.9, ease: "power3.out" },
+          0.75
         );
       }
 
       if (col2Ref.current) {
-        gsap.fromTo(
+        tl.fromTo(
           col2Ref.current,
           { opacity: 0, y: 60, scale: 0.92 },
-          {
-            opacity: 1,
-            y: 0,
-            scale: 1,
-            duration: 1.1,
-            delay: 0.15,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: col2Ref.current,
-              start: "top 88%",
-            },
-          }
+          { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" },
+          0.85
         );
       }
 
       if (col3Ref.current) {
-        gsap.fromTo(
+        tl.fromTo(
           col3Ref.current,
           { opacity: 0, x: 60, skewX: -5 },
-          {
-            opacity: 1,
-            x: 0,
-            skewX: 0,
-            duration: 1.1,
-            delay: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: col3Ref.current,
-              start: "top 88%",
-            },
-          }
+          { opacity: 1, x: 0, skewX: 0, duration: 0.9, ease: "power3.out" },
+          0.95
         );
       }
 
       // 7. Bottom Bar - Signature left tilt, Copyright float, Back-to-top bounce right
       if (sigRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           sigRef.current,
           { opacity: 0, x: -30, rotate: -4 },
-          {
-            opacity: 1,
-            x: 0,
-            rotate: 0,
-            duration: 1,
-            delay: 0.2,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: sigRef.current,
-              start: "top 95%",
-            },
-          }
+          { opacity: 1, x: 0, rotate: 0, duration: 0.8, ease: "power2.out" },
+          1.05
         );
       }
 
       if (copyRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           copyRef.current,
           { opacity: 0, y: 20 },
-          {
-            opacity: 1,
-            y: 0,
-            duration: 0.9,
-            delay: 0.3,
-            ease: "power2.out",
-            scrollTrigger: {
-              trigger: copyRef.current,
-              start: "top 95%",
-            },
-          }
+          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
+          1.15
         );
       }
 
       if (topLinkRef.current) {
-        gsap.fromTo(
+        tl.fromTo(
           topLinkRef.current,
           { opacity: 0, x: 30 },
-          {
-            opacity: 1,
-            x: 0,
-            duration: 1,
-            delay: 0.4,
-            ease: "back.out(1.7)",
-            scrollTrigger: {
-              trigger: topLinkRef.current,
-              start: "top 95%",
-            },
-          }
+          { opacity: 1, x: 0, duration: 0.9, ease: "back.out(1.7)" },
+          1.25
         );
       }
     }, footerRef);
