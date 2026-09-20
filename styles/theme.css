@@ -662,18 +662,16 @@ input[type=color]{appearance:none;cursor:pointer;background:0 0;border:0;border-
 .at-btn i.icon-arrow-right svg:last-child{bottom:0;left:-16px}
 .at-btn.active{background:var(--at-neutral-900);border-color:var(--at-neutral-900);color:var(--at-neutral-0)}
 .at-btn-border-white{background:#ffffff40;border:1px solid #ffffff4d}
-.at-btn-group{width:fit-content;display:flex}
-.at-btn-group>:first-child{margin-inline-end:-52px;transform:scale(.5)}
-.at-btn-group>:nth-child(2){transform:scale(1)}
-.at-btn-group>:nth-child(3){margin-inline-start:0;transform:scale(1)}
-.at-btn-group:hover>:first-child{background:#1d1d1d;margin-inline-end:0;transform:scale(1)}
-.at-btn-group:hover>:nth-child(2){background:#1d1d1d;transform:scale(1)}
-.at-btn-group:hover>:nth-child(3){background:#1d1d1d;margin-inline-start:-52px;transform:scale(.5)}
+.at-btn-group{width:fit-content;display:flex;align-items:center}
+.at-btn-group>*{transition:transform .35s cubic-bezier(.25,1,.5,1),margin .35s cubic-bezier(.25,1,.5,1),background-color .25s ease,border-color .25s ease,color .25s ease,opacity .25s ease}
+.at-btn-group>:first-child{margin-inline-end:-52px;transform:scale(.5);opacity:0;pointer-events:none}
+.at-btn-group>:nth-child(2){transform:scale(1);z-index:2}
+.at-btn-group>:nth-child(3){margin-inline-start:0;transform:scale(1);opacity:1;z-index:1}
+.at-btn-group:hover>:first-child{background:var(--at-theme-primary);margin-inline-end:0;transform:scale(1);opacity:1;pointer-events:auto}
+.at-btn-group:hover>:nth-child(2){background:var(--at-theme-primary);transform:scale(1)}
+.at-btn-group:hover>:nth-child(3){background:var(--at-theme-primary);margin-inline-start:-52px;transform:scale(.5);opacity:0;pointer-events:none}
 .at-btn-group .at-btn-circle{text-align:center;color:#fefefe;background-color:#1d1d1d;border-radius:100%;justify-content:center;align-items:center;gap:10px;width:50px;height:50px;font-size:16px;font-weight:500;line-height:1.5;display:flex}
 .at-btn-group .at-btn-circle i{transform:rotate(-45deg)}
-.at-btn-group-transparent .at-btn{color:#1d1d1d;background:#fefefe;border:1px solid #2626261a}
-.at-btn-group-transparent .at-btn-circle{color:#1d1d1d;background-color:#fefefe;border:1px solid #2626261a}
-.at-btn-group-transparent:hover>:nth-child(2), .at-btn-group-transparent:hover>:first-child{background:#fefefe}
 @keyframes rotate-infinite{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
 @keyframes rotate-infinite-2{0%{transform:rotate(0)}to{transform:rotate(-360deg)}}
 @keyframes animate-pulse{0%{box-shadow:0 0 #fff3,0 0 #fff3}40%{box-shadow:0 0 0 50px #ff6d4a00,0 0 #fff3}80%{box-shadow:0 0 0 50px #ff6d4a00,0 0 0 30px #ff6d4a00}to{box-shadow:0 0 #ff6d4a00,0 0 0 30px #ff6d4a00}}

@@ -209,17 +209,16 @@ h1, h2, h3, h4, h5, h6,
   border-color: var(--at-theme-primary) !important;
   color: #141210 !important;
 }
-.at-btn:hover,
+.at-btn-group:hover > :first-child svg,
+.at-btn-group:hover > :nth-child(2) svg,
+.at-btn-group:hover > :nth-child(3) svg {
+  fill: #141210 !important;
+  color: #141210 !important;
+}
 .at-btn.bg-transparent:hover {
   background: transparent !important;
   background-color: transparent !important;
   border-color: transparent !important;
-  color: #ffffff !important;
-}
-.at-btn-group-transparent:hover > :nth-child(2),
-.at-btn-group-transparent:hover > :first-child {
-  background: transparent !important;
-  color: #ffffff !important;
 }
 .sec-2-home-2 .mx-4 svg path {
   fill: var(--at-theme-primary);

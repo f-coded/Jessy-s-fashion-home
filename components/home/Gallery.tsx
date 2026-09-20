@@ -29,7 +29,7 @@ export default function Gallery() {
                   Harrington, Delaware.
                 </p>
               </div>
-              <BtnGroup href="/gallery" label="Explore our Gallery" transparent fade={{ delay: ".5", from: "bottom", ease: "bounce" }} />
+              <BtnGroup href="/gallery" label="Explore Our Gallery" fade={{ delay: ".5", from: "bottom", ease: "bounce" }} />
             </div>
           </div>
           <GalleryGrid items={SEED} />

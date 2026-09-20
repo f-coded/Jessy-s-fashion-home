@@ -55,7 +55,7 @@ export default async function GalleryPage() {
                   <span>/</span>
                   <span className="text-white">Gallery</span>
                 </div>
-                <BtnGroup href="/#footer" label="Book a Fitting" transparent fade={{ delay: ".3", from: "bottom", ease: "bounce" }} />
+                <BtnGroup href="/#footer" label="Book a Fitting" fade={{ delay: ".3", from: "bottom", ease: "bounce" }} />
               </div>
             </div>
           </div>
