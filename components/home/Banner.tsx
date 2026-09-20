@@ -52,10 +52,10 @@ export default function Banner() {
                   <SplitText text="A stylist's eye, a supplier's reach." />
                 </h2>
                 <p className="text-white mb-0">
-                  Nestled in the heart of Harrington, Delaware, Jenny&apos;s Fashion Home is where timeless elegance meets everyday
-                  glamour. Jenny started as a stylist and fashionista, dressing clients and artists in one-of-a-kind haute couture,
-                  and grew that eye into a business that now supplies fabrics, ready-to-wear and sewing machines to brands,
-                  artists and makers.
+                  Based in Harrington, Delaware with a global presence, Jenny&apos;s Fashion Home is where timeless elegance meets worldwide
+                  glamour. Jenny started as a stylist and fashionista, dressing clients, international buyers and recording artists in one-of-a-kind haute couture,
+                  and grew that eye into a global brand that supplies fabrics, ready-to-wear and sewing machines to brands,
+                  artists and makers worldwide.
                   <br className="d-xxl-block d-lg-none d-none" /> Step in, browse, and find something that&apos;s unmistakably you.
                 </p>
               </div>
@@ -72,7 +72,7 @@ export default function Banner() {
                 </div>
                 <div className="card-item-content p-absolute bottom-0 start-0">
                   <CardShape />
-                  <h6 className="card-item-text mb-0 text-white">Trusted by brands, artists and everyday fashion lovers across Delaware</h6>
+                  <h6 className="card-item-text mb-0 text-white">Trusted by brands, artists and everyday fashion lovers worldwide</h6>
                 </div>
               </div>
             </div>

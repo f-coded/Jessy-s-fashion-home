@@ -20,7 +20,7 @@ const SERVICES = [
     title: "Fabrics & RTW",
     desc: "The supply side of the house. Curated fabrics, textiles and ready-to-wear collections sourced for brands, designers and artists, delivered in the quantities you need, when you need them.",
     listA: ["Fabrics & Textiles", "Ready-to-Wear Supply", "Trims, Threads & Notions"],
-    listB: ["Bulk & Wholesale Orders", "Delivery Across Delaware & Beyond"],
+    listB: ["Bulk & Wholesale Orders", "Worldwide Express Delivery & Freight"],
     img: "/assets/imgs/pages/service-2.jpg",
   },
   {
