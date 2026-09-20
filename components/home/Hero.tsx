@@ -44,7 +44,7 @@ export default function Hero() {
                   Jenny&apos;s Fashion Home<sup className="fw-300">®</sup>
                 </h1>
               </div>
-              <div className="d-flex justify-content-center align-items-center mt-8">
+              <div className="d-flex justify-content-center align-items-center mt-4">
                 <p className="fz-font-lg fw-500 mb-0 text-white">
                   <a
                     href={SITE.whatsapp}
