@@ -504,10 +504,8 @@ input[type=color]{appearance:none;cursor:pointer;background:0 0;border:0;border-
 .alt-portfolio-btn .des{opacity:0;visibility:hidden;transition:all .4s}
 .alt-portfolio-main-title span{letter-spacing:-.05em;font-size:42px;font-style:italic;font-weight:800;line-height:1}
 .alt-portfolio-main-title span svg{margin-top:-60px;margin-left:5px}
-.alt-portfolio-main-title-wrap{margin-bottom:-270px}
-@media only screen and (min-width:992px) and (max-width:1199px),only screen and (min-width:768px) and (max-width:991px),only screen and (min-width:576px) and (max-width:767px),(max-width:574.98px){
-  .alt-portfolio-main-title-wrap{margin-bottom:30px}
-}
+.alt-portfolio-main-title-wrap{margin-bottom:0!important}
+.alt-portfolio-item-2, .alt-portfolio-item-3, .alt-portfolio-item-4, .alt-portfolio-item-6{margin-top:0!important}
 .mg-portfolio-dec{letter-spacing:-.03em;color:var(--at-common-black)}
 @media only screen and (min-width:1200px) and (max-width:1399px),only screen and (min-width:992px) and (max-width:1199px),only screen and (min-width:768px) and (max-width:991px),only screen and (min-width:576px) and (max-width:767px),(max-width:574.98px){
   .mg-portfolio-dec br{display:none}
