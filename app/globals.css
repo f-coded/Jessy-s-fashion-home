@@ -1,22 +1,7 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 @import "swiper/css";
-@import "lenis/dist/lenis.css";
 @import "../styles/utilities.css";
 @import "../styles/theme.css";
-
-/* Lenis smooth scrolling helper overrides */
-html.lenis, html.lenis body {
-  height: auto;
-}
-.lenis.lenis-smooth {
-  scroll-behavior: auto !important;
-}
-.lenis.lenis-smooth [data-lenis-prevent] {
-  overscroll-behavior: contain;
-}
-.lenis.lenis-stopped {
-  overflow: hidden;
-}
 
 /* ---- Small additions the template injects at runtime / via inline styles ---- */
 

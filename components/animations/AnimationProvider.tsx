@@ -3,13 +3,14 @@
 import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import { initSmoother } from "./smoother";
 import { initTextAnimations } from "./text";
 import { initScrollAnimations } from "./scroll";
 import { initPins } from "./pins";
 import { initHoverEffects } from "./hoverEffects";
 
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 /**
  * Boots every GSAP behaviour after hydration, in the same order the template does:
