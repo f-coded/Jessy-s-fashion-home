@@ -1,157 +1,118 @@
 import Link from "next/link";
 import BtnGroup from "@/components/ui/BtnGroup";
-import { BigStar122, BigArrow104, PlusIcon, CubeShapes, PrimaryLogoMark } from "@/components/ui/Icons";
+import { BigStar122, BigArrow104, PlusIcon, PrimaryLogoMark } from "@/components/ui/Icons";
 
-type Item = {
+type PortfolioItem = {
+  id: string;
   name: string;
   tag: string;
   title: string;
   img: string;
-  w: number;
-  h: number;
-  titleFirst: boolean;
-  itemClass: string;
-  colClass: string;
-  btnClass?: string;
-  cubes?: boolean;
+  aspectRatio: string;
 };
 
 const DES = "Styled, sourced and delivered by Jenny's Fashion Home, Harrington DE";
 
-const ITEMS: Item[] = [
+const LEFT_COLUMN_ITEMS: PortfolioItem[] = [
   {
+    id: "work-1",
     name: "The Storefront",
     tag: "Styling",
     title: "Window looks styled by Jenny",
     img: "/assets/imgs/pages/work-1.jpg",
-    w: 400,
-    h: 500,
-    titleFirst: true,
-    itemClass: "alt-portfolio-item at-hover-item mb-30",
-    colClass: "col-xxl-3 col-xl-4 col-lg-5 col-md-6 offset-xxl-4 offset-xl-4",
+    aspectRatio: "4 / 5",
   },
   {
-    name: "The Gown Wall",
-    tag: "haute couture",
-    title: "Statement gowns & custom silhouettes",
-    img: "/assets/imgs/pages/work-2.jpg",
-    w: 550,
-    h: 540,
-    titleFirst: false,
-    itemClass: "alt-portfolio-item mb-30 alt-portfolio-item-2 at-hover-item",
-    colClass: "col-xxl-4 col-xl-4 offset-xl-7 col-lg-4 col-md-6",
-  },
-  {
+    id: "work-3",
     name: "Ready-to-Wear",
-    tag: "rtw supply",
+    tag: "RTW Supply",
     title: "Curated collections for brands & boutiques",
     img: "/assets/imgs/pages/work-3.jpg",
-    w: 400,
-    h: 550,
-    titleFirst: true,
-    itemClass: "alt-portfolio-item alt-portfolio-item-3 mb-30 at-hover-item",
-    colClass: "col-xxl-3 col-lg-4 col-md-6",
+    aspectRatio: "1 / 1",
   },
   {
-    name: "Sketch Studio",
-    tag: "couture",
-    title: "Where every custom piece begins",
-    img: "/assets/imgs/pages/work-4.jpg",
-    w: 400,
-    h: 450,
-    titleFirst: false,
-    itemClass: "alt-portfolio-item alt-portfolio-item-4 mb-30 at-hover-item",
-    colClass: "col-xxl-3 offset-xl-3 col-lg-4 col-md-6",
-    btnClass: "end-0 me-3",
-    cubes: true,
-  },
-  {
+    id: "work-5",
     name: "Mannequin Room",
-    tag: "fittings",
+    tag: "Fittings",
     title: "Fittings, alterations & finishing",
     img: "/assets/imgs/pages/work-5.jpg",
-    w: 400,
-    h: 550,
-    titleFirst: true,
-    itemClass: "alt-portfolio-item alt-portfolio-item-5 mb-30 at-hover-item",
-    colClass: "col-xl-4 offset-xl-2 col-xxl-3 offset-xxl-2 col-lg-5 col-md-6",
-  },
-  {
-    name: "Machines & Tools",
-    tag: "distribution",
-    title: "Sewing machines supplied to makers",
-    img: "/assets/imgs/pages/work-6.jpg",
-    w: 550,
-    h: 400,
-    titleFirst: false,
-    itemClass: "alt-portfolio-item alt-portfolio-item-6 mb-30 at-hover-item",
-    colClass: "col-xl-4 offset-xxl-8 offset-xl-8 col-lg-5 col-md-6",
+    aspectRatio: "4 / 5",
   },
 ];
 
-function Title({ name }: { name: string }) {
-  return (
-    <div className="alt-portfolio-content d-flex justify-content-between align-items-center mb-15">
-      <h5 className="alt-portfolio-title mb-0">
-        <Link className="common-underline" href="#work">
-          {name}
-        </Link>
-      </h5>
-      <span className="alt-portfolio-plus neutral-950">
-        <PlusIcon />
-      </span>
-    </div>
-  );
-}
+const RIGHT_COLUMN_ITEMS: PortfolioItem[] = [
+  {
+    id: "work-2",
+    name: "The Gown Wall",
+    tag: "Haute Couture",
+    title: "Statement gowns & custom silhouettes",
+    img: "/assets/imgs/pages/work-2.jpg",
+    aspectRatio: "16 / 11",
+  },
+  {
+    id: "work-4",
+    name: "Sketch Studio",
+    tag: "Couture",
+    title: "Where every custom piece begins",
+    img: "/assets/imgs/pages/work-4.jpg",
+    aspectRatio: "4 / 5",
+  },
+  {
+    id: "work-6",
+    name: "Machines & Tools",
+    tag: "Distribution",
+    title: "Sewing machines supplied to makers",
+    img: "/assets/imgs/pages/work-6.jpg",
+    aspectRatio: "16 / 11",
+  },
+];
 
-function Thumb({ item }: { item: Item }) {
+function PortfolioCard({ item }: { item: PortfolioItem }) {
   return (
-    <Link className={`alt-portfolio-thumb p-relative fix d-block${item.titleFirst ? "" : " mb-15"}`} href="#work">
-      <span className="w-100 d-block scale-img-from-to" data-value-1="1.5" data-value-2="1">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img alt={item.name} width={item.w} height={item.h} className="img-cover rounded-4" src={item.img} />
-      </span>
-      <div className={`alt-portfolio-btn ${item.btnClass ?? ""}`.trim()}>
-        <div className="content">
-          <span className="bg-transparent text-uppercase border px-3 py-1 rounded-pill text-white fz-font-label">{item.tag}</span>
-          <h2 className="fw-400 fz-font-3xl text-white mb-0 mt-20">{item.title}</h2>
-          <p className="text-white fz-font-md mb-0 mt-10 text-truncate-2 des">{DES}</p>
-        </div>
+    <div className="alt-portfolio-item at-hover-item mb-4 mb-lg-5 w-100">
+      <div className="alt-portfolio-content d-flex justify-content-between align-items-center mb-3">
+        <h4 className="alt-portfolio-title mb-0 fw-600" style={{ fontSize: "clamp(18px, 1.6vw, 22px)", letterSpacing: "-0.02em" }}>
+          <Link className="common-underline text-decoration-none text-white" href="#work">
+            {item.name}
+          </Link>
+        </h4>
+        <span className="alt-portfolio-plus text-white opacity-75">
+          <PlusIcon />
+        </span>
       </div>
-    </Link>
-  );
-}
 
-function Card({ item }: { item: Item }) {
-  return (
-    <div className={item.colClass}>
-      {item.cubes && (
-        <div className="at-about-svg-wrap move-up">
-          <CubeShapes />
+      <Link
+        className="alt-portfolio-thumb p-relative fix d-block rounded-4 overflow-hidden shadow-lg transition-all"
+        href="#work"
+        style={{ aspectRatio: item.aspectRatio }}
+      >
+        <span className="w-100 h-100 d-block scale-img-from-to" data-value-1="1.15" data-value-2="1">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            alt={item.name}
+            className="img-cover rounded-4 w-100 h-100"
+            src={item.img}
+            style={{ objectFit: "cover", width: "100%", height: "100%", transition: "transform 0.7s cubic-bezier(0.16, 1, 0.3, 1)" }}
+          />
+        </span>
+
+        <div className="alt-portfolio-btn p-4 z-index-2">
+          <div className="content">
+            <span
+              className="bg-dark bg-opacity-75 text-uppercase border border-light border-opacity-25 px-3 py-1 rounded-pill text-white fw-medium"
+              style={{ fontSize: "11px", letterSpacing: "0.1em" }}
+            >
+              {item.tag}
+            </span>
+            <h3 className="fw-500 fz-font-3xl text-white mb-0 mt-3" style={{ fontSize: "clamp(20px, 2.2vw, 28px)" }}>
+              {item.title}
+            </h3>
+            <p className="text-white-50 fz-font-md mb-0 mt-2 text-truncate-2 des" style={{ fontSize: "14px" }}>
+              {DES}
+            </p>
+          </div>
         </div>
-      )}
-      <div className={item.itemClass}>
-        {item.titleFirst ? (
-          <>
-            <Title name={item.name} />
-            <Thumb item={item} />
-          </>
-        ) : (
-          <>
-            <Thumb item={item} />
-            <div className="alt-portfolio-content d-flex justify-content-between align-items-center">
-              <h5 className="alt-portfolio-title mb-0">
-                <Link className="common-underline" href="#work">
-                  {item.name}
-                </Link>
-              </h5>
-              <span className="alt-portfolio-plus neutral-950">
-                <PlusIcon />
-              </span>
-            </div>
-          </>
-        )}
-      </div>
+      </Link>
     </div>
   );
 }
@@ -159,41 +120,60 @@ function Card({ item }: { item: Item }) {
 export default function Portfolio() {
   return (
     <div className="container-2200" id="work">
-      <div className="alt-portfolio-area portfolio-area bg-neutral-50 rounded-5 mx-lg-3 mx-2 pt-120 pb-120">
+      <div className="alt-portfolio-area portfolio-area bg-neutral-50 rounded-5 mx-lg-3 mx-2 pt-100 pb-100">
         <div className="container">
-          <div className="row">
-            <div className="col-xxl-5 col-xl-5 col-md-8">
+          {/* Title Header */}
+          <div className="row mb-5 align-items-end">
+            <div className="col-lg-7 col-md-10">
               <div className="alt-portfolio-main-title-wrap portfolio-text">
-                <h1 className="alt-portfolio-main-title reveal-text fz-ds-1 fw-500">
+                <h1
+                  className="alt-portfolio-main-title reveal-text fz-ds-1 fw-500 text-white"
+                  style={{ fontSize: "clamp(42px, 7vw, 90px)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
+                >
                   Inside
-                  <BigStar122 />
+                  <span className="d-inline-block mx-2 opacity-75">
+                    <BigStar122 />
+                  </span>
                   The
                   <br /> House
-                  <BigArrow104 />
+                  <span className="d-inline-block ms-3 opacity-75">
+                    <BigArrow104 />
+                  </span>
                 </h1>
               </div>
             </div>
+            <div className="col-lg-5 col-md-12 mt-4 mt-lg-0 text-lg-end">
+              <p className="text-white-50 mb-0" style={{ fontSize: "clamp(15px, 1.4vw, 18px)", maxWidth: "420px", marginLeft: "auto" }}>
+                A curated glimpse into the storefront, gown gallery, sketch studio, and industrial craft spaces of Jenny&apos;s Fashion Home.
+              </p>
+            </div>
           </div>
-          <div className="row justify-content-xl-start justify-content-center">
-            <Card item={ITEMS[0]} />
-            <Card item={ITEMS[1]} />
+
+          {/* 2-Column Collage Layout */}
+          <div className="row g-4 g-lg-5 align-items-start">
+            {/* Left Column */}
+            <div className="col-lg-6 col-12">
+              {LEFT_COLUMN_ITEMS.map((item) => (
+                <PortfolioCard key={item.id} item={item} />
+              ))}
+            </div>
+
+            {/* Right Column (Staggered offset down on desktop for editorial collage look) */}
+            <div className="col-lg-6 col-12 mt-lg-5 pt-lg-4">
+              {RIGHT_COLUMN_ITEMS.map((item) => (
+                <PortfolioCard key={item.id} item={item} />
+              ))}
+            </div>
           </div>
-          <div className="row justify-content-xl-start justify-content-center">
-            <Card item={ITEMS[2]} />
-            <Card item={ITEMS[3]} />
-          </div>
-          <div className="row justify-content-xl-start justify-content-center">
-            <Card item={ITEMS[4]} />
-            <Card item={ITEMS[5]} />
-          </div>
-          <div className="row">
-            <div className="col-xxl-4 col-lg-6 col-md-8 offset-xxl-4 offset-lg-3">
-              <div className="mg-portfolio-title-wrap mb-30">
+
+          {/* Bottom Summary & Gallery CTA */}
+          <div className="row mt-5 pt-4">
+            <div className="col-xxl-6 col-lg-8 col-md-10 mx-auto text-center">
+              <div className="mg-portfolio-title-wrap mb-30 d-flex flex-column align-items-center">
                 <PrimaryLogoMark />
-                <div className="at_fade_anim" data-delay=".3">
-                  <p className="mg-portfolio-dec mb-30 fz-font-lg">
-                    A look inside the house: the storefront, the gown wall, the sketch studio and the machines that keep
-                    Delaware&apos;s makers sewing.
+                <div className="at_fade_anim mt-4" data-delay=".3">
+                  <p className="mg-portfolio-dec mb-4 text-white-50 fz-font-lg" style={{ fontSize: "16px", maxWidth: "560px" }}>
+                    From custom bridal fittings to industrial sewing machinery distribution, every corner of our Harrington house is dedicated to couture excellence.
                   </p>
                 </div>
                 <BtnGroup href="#gallery" label="See the gallery" />
