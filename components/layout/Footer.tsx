@@ -175,7 +175,7 @@ export default function Footer() {
           boxSizing: "border-box",
           whiteSpace: "nowrap",
           fontFamily: "var(--font-bricolage), sans-serif",
-          fontSize: "clamp(90px, 17.5vw, 330px)",
+          fontSize: "clamp(115px, 20vw, 340px)",
           fontWeight: 800,
           lineHeight: 0.95,
           letterSpacing: "-0.04em",
@@ -204,7 +204,7 @@ export default function Footer() {
               style={{
                 fontFamily: "var(--font-bricolage), sans-serif",
                 letterSpacing: "-0.04em",
-                fontSize: "clamp(38px, 7.5vw, 105px)",
+                fontSize: "clamp(48px, 9.5vw, 105px)",
                 perspective: "1000px",
                 lineHeight: 1.05,
               }}
@@ -218,7 +218,7 @@ export default function Footer() {
                   color: "#cda052",
                   fontWeight: 400,
                   fontStyle: "italic",
-                  fontSize: "clamp(54px, 9.5vw, 135px)",
+                  fontSize: "clamp(68px, 12vw, 135px)",
                   lineHeight: 0.9,
                 }}
               >
