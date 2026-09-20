@@ -90,9 +90,13 @@ export function initPins(): () => void {
       const items = Array.from(wrapper.querySelectorAll<HTMLElement>(".item"));
       if (!items.length) return;
 
-      // Remove forced 100vh minHeight to prevent empty gaps under testimonial cards
-      gsap.set(items[0], { minHeight: "auto", height: "auto" });
-      items.forEach((it, i) => i !== 0 && gsap.set(it, { yPercent: 100 }));
+      // First item visible, upcoming items hidden (opacity 0) so no peeking edges appear
+      gsap.set(items[0], { minHeight: "auto", height: "auto", opacity: 1, scale: 1 });
+      items.forEach((it, i) => {
+        if (i !== 0) {
+          gsap.set(it, { yPercent: 50, opacity: 0, scale: 0.96 });
+        }
+      });
 
       const setActive = (progress: number) => {
         const idx = Math.min(Math.floor(Math.min(Math.max(progress, 0), 0.9999) * items.length), items.length - 1);
@@ -113,9 +117,14 @@ export function initPins(): () => void {
       });
 
       items.forEach((it, i) => {
-        tl.to(it, { scale: 0.96, opacity: 0.95 });
         if (items[i + 1]) {
-          tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
+          tl.to(it, { scale: 0.98, opacity: 0.9 }, ">");
+          tl.fromTo(
+            items[i + 1],
+            { yPercent: 50, opacity: 0, scale: 0.96 },
+            { yPercent: 0, opacity: 1, scale: 1, duration: 1 },
+            "<"
+          );
         }
       });
 
