@@ -165,10 +165,10 @@ export default function Footer() {
               </div>
             </div>
 
-            {/* Bottom Bar Footer (NO LINE ABOVE IT) */}
-            <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-3 pt-3 p-relative z-1 text-muted small">
-              {/* Signature Logo */}
-              <div>
+            {/* Bottom Bar Footer with 3 equal columns for dead-center copyright text */}
+            <div className="row align-items-center g-3 pt-3 p-relative z-1 text-muted small">
+              {/* Signature Logo Left */}
+              <div className="col-md-4 col-12 text-center text-md-start">
                 <span
                   style={{
                     fontFamily: "var(--font-script), cursive",
@@ -181,13 +181,15 @@ export default function Footer() {
                 </span>
               </div>
 
-              {/* Copyright Center */}
-              <div className="text-center opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
-                © {new Date().getFullYear()} {SITE.name}
+              {/* Copyright Center - 100% geometrically centered */}
+              <div className="col-md-4 col-12 text-center">
+                <span className="opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
+                  © {new Date().getFullYear()} {SITE.name}
+                </span>
               </div>
 
-              {/* Back to top Link */}
-              <div>
+              {/* Back to top Link Right */}
+              <div className="col-md-4 col-12 text-center text-md-end">
                 <a
                   href="#top-hero"
                   onClick={scrollToTop}
