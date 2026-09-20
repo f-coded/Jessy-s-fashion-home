@@ -253,11 +253,15 @@ export default function Footer() {
                 lineHeight: 0.85,
                 letterSpacing: "-0.04em",
                 background:
-                  "linear-gradient(180deg, rgba(205, 160, 82, 0.22) 0%, rgba(205, 160, 82, 0.08) 50%, rgba(14, 13, 11, 0) 92%)",
+                  "linear-gradient(180deg, rgba(205, 160, 82, 0.35) 0%, rgba(205, 160, 82, 0.12) 45%, rgba(14, 13, 11, 0) 85%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
                 color: "transparent",
+                WebkitMaskImage:
+                  "linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 80%)",
+                maskImage:
+                  "linear-gradient(180deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.35) 45%, rgba(0, 0, 0, 0) 80%)",
                 userSelect: "none",
                 pointerEvents: "none",
               }}
