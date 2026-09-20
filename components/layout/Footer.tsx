@@ -42,7 +42,7 @@ export default function Footer() {
         scrollTrigger: {
           trigger: triggerTarget,
           start: "top 75%",
-          toggleActions: "play none none reverse",
+          toggleActions: "restart none none reset",
           invalidateOnRefresh: true,
         },
       });
