@@ -89,30 +89,36 @@ export function initPins(): () => void {
       if (!wrapper) return;
       const items = Array.from(wrapper.querySelectorAll<HTMLElement>(".item"));
       if (!items.length) return;
-      gsap.set(items[0], { minHeight: "100vh", height: "auto" });
+
+      // Remove forced 100vh minHeight to prevent empty gaps under testimonial cards
+      gsap.set(items[0], { minHeight: "auto", height: "auto" });
       items.forEach((it, i) => i !== 0 && gsap.set(it, { yPercent: 100 }));
+
       const setActive = (progress: number) => {
         const idx = Math.min(Math.floor(Math.min(Math.max(progress, 0), 0.9999) * items.length), items.length - 1);
         items.forEach((it, i) => it.classList.toggle("active", i === idx));
       };
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sec,
           pin: true,
           start: "top top",
-          end: () => `+=${60 * items.length}%`,
+          end: () => `+=${22 * items.length}%`,
           scrub: 0.8,
-          invalidateOnRefresh: false,
+          invalidateOnRefresh: true,
           onUpdate: (self) => setActive(self.progress),
         },
         defaults: { ease: "none" },
       });
+
       items.forEach((it, i) => {
-        tl.to(it, { scale: 0.93, opacity: 0.9 });
+        tl.to(it, { scale: 0.96, opacity: 0.95 });
         if (items[i + 1]) {
           tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
         }
       });
+
       const onScroll = () => {
         if (tl.scrollTrigger?.isActive) setActive(tl.scrollTrigger.progress ?? 0);
       };

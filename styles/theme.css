@@ -588,6 +588,7 @@ input[type=color]{appearance:none;cursor:pointer;background:0 0;border:0;border-
 .scroll-section .wrapper{height:auto;position:relative}
 .scroll-section .list{height:100%;position:relative}
 .scroll-section .item{width:100%;height:auto;min-height:100vh;top:0;left:0;right:0}
+.section-fix .scroll-section .item, .section-fix .scroll-section .item:first-child{min-height:auto!important;height:auto!important}
 .scroll-section .item:first-child{height:100%;min-height:100%}
 .scroll-section .item:not(:first-child){position:absolute}
 .change-price-plan{flex-wrap:wrap;justify-content:flex-end;align-items:center;gap:12px;display:flex}

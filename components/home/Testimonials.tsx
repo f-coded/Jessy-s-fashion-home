@@ -25,18 +25,39 @@ const ITEMS = [
     company: "Harrington, Delaware",
     avatar: "/assets/imgs/avatar/avatar-3.jpg",
   },
+  {
+    text: "“Working with Jenny from Dubai has been seamless. The craftsmanship of her bespoke gowns and quality of raw silks surpassed European luxury standards.”",
+    name: "Fatima Al-Maktoum",
+    role: "Luxury Stylist & Buyer",
+    company: "Dubai, UAE",
+    avatar: "/assets/imgs/avatar/thumb-1.jpg",
+  },
+  {
+    text: "“Jenny's Fashion Home delivers exceptional tailored pieces. Her attention to intricate embroidery and structural fitting is celebrated across our Shanghai studio.”",
+    name: "Wei Chen",
+    role: "Creative Director",
+    company: "Shanghai, China",
+    avatar: "/assets/imgs/avatar/thumb-2.jpg",
+  },
+  {
+    text: "“Her custom evening wear collections are an absolute masterpiece in Singapore. Precise tailoring, prompt international freight, and impeccable style.”",
+    name: "Evelyn Tan",
+    role: "Haute Couture Retailer",
+    company: "Singapore",
+    avatar: "/assets/imgs/avatar/thumb-3.jpg",
+  },
 ];
 
 /** Pinned title + stacked testimonial cards (`.section-fix` / `.scroll-active-item`). */
 export default function Testimonials() {
   return (
     <div className="container-2200">
-      <section className="rounded-5 mx-lg-3 mx-2 bg-neutral-50 overflow-hidden pb-lg-5">
-        <div className="section-fix pt-120 pb-100">
+      <section className="rounded-5 mx-lg-3 mx-2 bg-neutral-50 overflow-hidden py-lg-4 py-3">
+        <div className="section-fix py-md-5 py-4">
           <div className="container">
-            <div className="row g-5">
-              <div className="col-lg-5 h-100">
-                <div className="section-title-pin h-100">
+            <div className="row g-4 align-items-start">
+              <div className="col-lg-5">
+                <div className="section-title-pin">
                   <AtBtn as="span" className="common-black bg-transparent mb-10 rounded-0 p-0" textClassName="text-uppercase">
                     Why clients stay
                   </AtBtn>
