@@ -2,7 +2,7 @@ import Logo from "./Logo";
 import NavMenu from "./NavMenu";
 import ThemeToggle from "./ThemeToggle";
 import HeaderBehavior from "./HeaderBehavior";
-import { SearchIcon, GridIcon18 } from "@/components/ui/Icons";
+import { GridIcon18 } from "@/components/ui/Icons";
 
 export default function Header() {
   return (
@@ -22,9 +22,6 @@ export default function Header() {
             </div>
             <div className="col-xl-3 col-5">
               <div className="at-header-right gap-3 d-flex justify-content-end align-items-center">
-                <button type="button" className="at-header-search-btn at-search-click" aria-label="Search">
-                  <SearchIcon />
-                </button>
                 <div className="dark-light-mode">
                   <ThemeToggle />
                 </div>
