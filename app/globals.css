@@ -605,3 +605,24 @@ h1, h2, h3, h4, h5, h6,
   background-color: #dfb05d !important;
   box-shadow: 0 10px 25px rgba(205, 160, 82, 0.3) !important;
 }
+
+/* Inside The House light & dark theme styling */
+.alt-portfolio-area {
+  color: var(--at-common-black);
+}
+.alt-portfolio-main-title {
+  color: var(--at-common-black);
+}
+.alt-portfolio-content .alt-portfolio-title a,
+.alt-portfolio-content .alt-portfolio-plus {
+  color: var(--at-common-black);
+}
+.alt-portfolio-content .alt-portfolio-title a:hover {
+  color: var(--at-theme-primary);
+}
+[data-bs-theme="dark"] .alt-portfolio-area,
+[data-bs-theme="dark"] .alt-portfolio-main-title,
+[data-bs-theme="dark"] .alt-portfolio-content .alt-portfolio-title a,
+[data-bs-theme="dark"] .alt-portfolio-content .alt-portfolio-plus {
+  color: #ffffff;
+}

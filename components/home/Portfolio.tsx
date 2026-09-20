@@ -72,11 +72,11 @@ function PortfolioCard({ item }: { item: PortfolioItem }) {
     <div className="alt-portfolio-item at-hover-item mb-4 mb-lg-5 w-100">
       <div className="alt-portfolio-content d-flex justify-content-between align-items-center mb-3">
         <h4 className="alt-portfolio-title mb-0 fw-600" style={{ fontSize: "clamp(18px, 1.6vw, 22px)", letterSpacing: "-0.02em" }}>
-          <Link className="common-underline text-decoration-none text-white" href="#work">
+          <Link className="common-underline text-decoration-none" href="#work">
             {item.name}
           </Link>
         </h4>
-        <span className="alt-portfolio-plus text-white opacity-75">
+        <span className="alt-portfolio-plus opacity-75">
           <PlusIcon />
         </span>
       </div>
@@ -127,7 +127,7 @@ export default function Portfolio() {
             <div className="col-lg-7 col-md-10">
               <div className="alt-portfolio-main-title-wrap portfolio-text">
                 <h1
-                  className="alt-portfolio-main-title reveal-text fz-ds-1 fw-500 text-white"
+                  className="alt-portfolio-main-title reveal-text fz-ds-1 fw-500"
                   style={{ fontSize: "clamp(38px, 6.5vw, 90px)", lineHeight: 1.05, letterSpacing: "-0.03em" }}
                 >
                   Inside
@@ -143,7 +143,7 @@ export default function Portfolio() {
               </div>
             </div>
             <div className="col-lg-5 col-md-12 mt-4 mt-lg-0 text-lg-end">
-              <p className="text-white-50 mb-0" style={{ fontSize: "clamp(15px, 1.4vw, 18px)", maxWidth: "420px", marginLeft: "auto" }}>
+              <p className="opacity-75 mb-0" style={{ fontSize: "clamp(15px, 1.4vw, 18px)", maxWidth: "420px", marginLeft: "auto" }}>
                 A curated glimpse into the storefront, gown gallery, sketch studio, and industrial craft spaces of Jenny&apos;s Fashion Home.
               </p>
             </div>
@@ -172,7 +172,7 @@ export default function Portfolio() {
               <div className="mg-portfolio-title-wrap mb-30 d-flex flex-column align-items-center">
                 <PrimaryLogoMark />
                 <div className="at_fade_anim mt-4" data-delay=".3">
-                  <p className="mg-portfolio-dec mb-4 text-white-50 fz-font-lg" style={{ fontSize: "16px", maxWidth: "560px" }}>
+                  <p className="mg-portfolio-dec mb-4 opacity-75 fz-font-lg" style={{ fontSize: "16px", maxWidth: "560px" }}>
                     From custom bridal fittings to industrial sewing machinery distribution, every corner of our Harrington house is dedicated to couture excellence.
                   </p>
                 </div>
