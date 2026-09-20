@@ -89,7 +89,7 @@ export function initPins(): () => void {
       if (!wrapper) return;
       const items = Array.from(wrapper.querySelectorAll<HTMLElement>(".item"));
       if (!items.length) return;
-      gsap.set(items[0], { minHeight: "100vh", height: "auto" });
+      gsap.set(items[0], { minHeight: "auto", height: "auto" });
       items.forEach((it, i) => i !== 0 && gsap.set(it, { yPercent: 100 }));
       const setActive = (progress: number) => {
         const idx = Math.min(Math.floor(Math.min(Math.max(progress, 0), 0.9999) * items.length), items.length - 1);
@@ -100,9 +100,9 @@ export function initPins(): () => void {
           trigger: sec,
           pin: true,
           start: "top top",
-          end: () => `+=${60 * items.length}%`,
+          end: () => `+=${20 * items.length}%`,
           scrub: 0.8,
-          invalidateOnRefresh: false,
+          invalidateOnRefresh: true,
           onUpdate: (self) => setActive(self.progress),
         },
         defaults: { ease: "none" },

@@ -53,7 +53,7 @@ export default function Testimonials() {
   return (
     <div className="container-2200">
       <section className="rounded-5 mx-lg-3 mx-2 bg-neutral-50 overflow-hidden pb-lg-5">
-        <div className="section-fix pt-120 pb-100">
+        <div className="section-fix pt-100 pb-40">
           <div className="container">
             <div className="row g-5">
               <div className="col-lg-5 h-100">
