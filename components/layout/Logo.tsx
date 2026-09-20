@@ -5,7 +5,7 @@ import Link from "next/link";
  */
 export default function Logo({
   className = "at-header-logo",
-  height = 46,
+  height = 68,
 }: {
   className?: string;
   tone?: "auto" | "light";

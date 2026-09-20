@@ -54,7 +54,7 @@ export default function PageLoader() {
         <img
           className="page-loader-logo-img"
           alt="Jenny's Fashion Home"
-          style={{ height: "85px", width: "auto", objectFit: "contain" }}
+          style={{ height: "135px", width: "auto", objectFit: "contain" }}
           src="/assets/imgs/logo/brand-logo.png"
         />
       </div>
