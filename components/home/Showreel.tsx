@@ -9,7 +9,7 @@ const ROWS: { dir: "left" | "right"; words: string[] }[] = [
 
 const BOUTIQUE_VIDEO = "/assets/video/Fashion_boutique_interior_advert._20260918065357.mp4";
 
-/** Pinned clip-path zoom & video scroll-scrub: video expands to full bleed & scrubs playback per scroll. */
+/** Pinned clip-path zoom: boutique video expands from central slot to full bleed while marquee text fades. */
 export default function Showreel() {
   return (
     <div className="container-2200 pb-100">
@@ -34,7 +34,10 @@ export default function Showreel() {
               <video
                 className="postbox-scroll-zoom-img img-cover"
                 src={BOUTIQUE_VIDEO}
+                poster="/assets/imgs/pages/showreel-bg.jpg"
+                autoPlay
                 muted
+                loop
                 playsInline
                 preload="auto"
                 style={{ objectFit: "cover", width: "100%", height: "100%" }}
