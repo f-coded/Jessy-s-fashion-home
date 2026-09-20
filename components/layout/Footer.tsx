@@ -236,19 +236,17 @@ export default function Footer() {
 
           {/* LOWER FOOTER SECTION WITH GIANT GRADIENT WATERMARK */}
           <div className="p-relative pt-3 pb-2">
-            {/* Giant Centered Watermark "Jennifer" (Fades to 100% transparent down) */}
+            {/* Giant Centered Watermark "Jennifer" (Justified to screen center with clear unclipped edges) */}
             <div
               ref={watermarkRef}
-              className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
+              className="p-absolute start-50 translate-middle-x pointer-events-none select-none z-0"
               style={{
                 top: "-70px",
-                width: "100%",
-                maxWidth: "100vw",
-                padding: "0.2em 0.1em",
-                boxSizing: "border-box",
+                width: "max-content",
+                maxWidth: "90vw",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-bricolage), sans-serif",
-                fontSize: "clamp(120px, 25vw, 420px)",
+                fontSize: "clamp(85px, 15.8vw, 285px)",
                 fontWeight: 800,
                 lineHeight: 0.85,
                 letterSpacing: "-0.04em",
