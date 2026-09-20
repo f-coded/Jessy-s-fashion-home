@@ -626,3 +626,8 @@ h1, h2, h3, h4, h5, h6,
 [data-bs-theme="dark"] .alt-portfolio-content .alt-portfolio-plus {
   color: #ffffff;
 }
+
+/* Odometer number spacing fix */
+.odometer {
+  letter-spacing: normal !important;
+}
