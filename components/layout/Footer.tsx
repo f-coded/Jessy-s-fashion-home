@@ -183,7 +183,7 @@ export default function Footer() {
 
               {/* Copyright Center */}
               <div className="text-center opacity-75" style={{ fontSize: "13px", color: "#a0a0a0" }}>
-                © {new Date().getFullYear()} {SITE.name} · {SITE.city}
+                © {new Date().getFullYear()} {SITE.name}
               </div>
 
               {/* Back to top Link */}
