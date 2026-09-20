@@ -25,7 +25,7 @@ export default function Hero() {
           {/* Top Row: Subheadline Text & Icon Centered container */}
           <div className="row justify-content-center mb-4 mb-md-5">
             <div className="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-12">
-              <div className="at-hero-service pb-3 pb-md-4 border-bottom" style={{ borderBottomColor: "rgba(201, 169, 97, 0.4)" }}>
+              <div className="at-hero-service pb-3 pb-md-4">
                 <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-start mx-auto" style={{ maxWidth: "480px" }}>
                   <HeroShape />
                   <p className="jfh-hero-desc fz-font-md fw-500 text-white lh-base mb-0 text-start">
@@ -37,7 +37,7 @@ export default function Hero() {
           </div>
 
           {/* Bottom Row: Main Title Centered + Phone Number Centered with WhatsApp icon */}
-          <div className="row justify-content-center text-center mt-2">
+          <div className="row justify-content-center text-center mt-4">
             <div className="col-12">
               <div className="at-title-anim overflow-hidden text-center">
                 <h1 className="jfh-hero-title fw-400 mb-0 at-title-text text-white text-center" style={{ fontWeight: 400 }}>
