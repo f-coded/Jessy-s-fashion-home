@@ -1,26 +1,26 @@
 import Link from "next/link";
 
 /**
- * Wordmark that mirrors the storefront signage: gold silhouette + "Jenny's" in script
- * over a letter-spaced "FASHION HOME".
+ * Official Brand Logo Component: Gold metallic script & silhouette logo graphic.
  */
 export default function Logo({
   className = "at-header-logo",
-  tone = "auto",
+  height = 46,
 }: {
   className?: string;
-  /** `light` forces white/gold (footer, loader); `auto` follows the theme. */
   tone?: "auto" | "light";
+  height?: number;
 }) {
   return (
     <div className={className}>
-      <Link href="/" className={`brand-logo${tone === "light" ? " brand-logo--light" : ""}`} aria-label="Jenny's Fashion Home">
+      <Link href="/" className="brand-logo-link d-inline-flex align-items-center" aria-label="Jenny's Fashion Home">
         {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img className="brand-logo__mark" alt="" width={40} height={60} src="/assets/imgs/logo/favicon.svg" />
-        <span className="brand-logo__text">
-          <span className="brand-logo__script">Jenny&apos;s</span>
-          <span className="brand-logo__sub">Fashion Home</span>
-        </span>
+        <img
+          className="brand-logo__img"
+          alt="Jenny's Fashion Home"
+          style={{ height: `${height}px`, width: "auto", objectFit: "contain" }}
+          src="/assets/imgs/logo/brand-logo.png"
+        />
       </Link>
     </div>
   );

@@ -293,9 +293,23 @@ h1, h2, h3, h4, h5, h6,
   font-size: 13px;
   margin-top: 8px;
 }
-[data-bs-theme="dark"] .at-header-logo img.brand-logo__mark,
-[data-bs-theme="dark"] .at-offcanvas-logo img.brand-logo__mark {
-  filter: none;
+[data-bs-theme="dark"] .at-header-logo img,
+[data-bs-theme="dark"] .at-offcanvas-logo img,
+.at-header-logo img,
+.at-offcanvas-logo img {
+  filter: none !important;
+}
+
+.brand-logo__img {
+  height: 48px;
+  width: auto;
+  max-width: 190px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.brand-logo-link:hover .brand-logo__img {
+  transform: scale(1.03);
 }
 
 /* Hero title & layout */

@@ -50,14 +50,13 @@ export default function PageLoader() {
   return (
     <div className="page-loader" ref={ref}>
       <div className="page-loader-logo hide-animation">
-        <span className="brand-logo brand-logo--light brand-logo--lg">
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img className="brand-logo__mark" alt="" width={40} height={60} src="/assets/imgs/logo/favicon.svg" />
-          <span className="brand-logo__text">
-            <span className="brand-logo__script">Jenny&apos;s</span>
-            <span className="brand-logo__sub">Fashion Home</span>
-          </span>
-        </span>
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          className="page-loader-logo-img"
+          alt="Jenny's Fashion Home"
+          style={{ height: "85px", width: "auto", objectFit: "contain" }}
+          src="/assets/imgs/logo/brand-logo.png"
+        />
       </div>
       {Array.from({ length: 10 }).map((_, i) => (
         <div key={i} className="bar"></div>
