@@ -11,7 +11,6 @@ if (typeof window !== "undefined") {
 
 export default function Footer() {
   const footerRef = useRef<HTMLElement>(null);
-  const tagRef = useRef<HTMLSpanElement>(null);
   const titleTextRef = useRef<HTMLHeadingElement>(null);
   const titleScriptRef = useRef<HTMLSpanElement>(null);
   const btnRef = useRef<HTMLDivElement>(null);
@@ -47,116 +46,108 @@ export default function Footer() {
         },
       });
 
-      // 1. Tag (05) CONTACT - letter tracking expand & drop down
-      if (tagRef.current) {
+      // 1. Main Headline "Let's make it" - 3D perspective flip & blur reveal
+      if (titleTextRef.current) {
         tl.fromTo(
-          tagRef.current,
-          { opacity: 0, y: -25, letterSpacing: "0.4em" },
-          { opacity: 1, y: 0, letterSpacing: "0.18em", duration: 0.8, ease: "back.out(1.7)" },
+          titleTextRef.current,
+          { opacity: 0, y: 70, rotateX: -60, filter: "blur(12px)" },
+          { opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)", duration: 1.2, ease: "power4.out" },
           0
         );
       }
 
-      // 2. Main Title: "Let's make it" rise & "yours." flourish spin
-      if (titleTextRef.current) {
-        tl.fromTo(
-          titleTextRef.current,
-          { opacity: 0, y: 50, rotateX: -30 },
-          { opacity: 1, y: 0, rotateX: 0, duration: 1, ease: "power4.out" },
-          0.15
-        );
-      }
+      // 2. Script "yours." - Liquid ink bloom & elastic unroll flourish
       if (titleScriptRef.current) {
         tl.fromTo(
           titleScriptRef.current,
-          { opacity: 0, scale: 0.5, rotate: -15, y: 30 },
-          { opacity: 1, scale: 1, rotate: 0, y: 0, duration: 1.1, ease: "elastic.out(1, 0.6)" },
+          { opacity: 0, scale: 0.1, rotate: -35, skewX: -25, filter: "blur(20px)", transformOrigin: "left center" },
+          { opacity: 1, scale: 1, rotate: 0, skewX: 0, filter: "blur(0px)", duration: 1.4, ease: "elastic.out(1, 0.45)" },
           0.3
         );
       }
 
-      // 3. WhatsApp Pill Button - pop & magnetic bounce
+      // 3. WhatsApp Pill Button - 3D Radial Ripple Pop with spring bounce
       if (btnRef.current) {
         tl.fromTo(
           btnRef.current,
-          { opacity: 0, scale: 0.6, y: 30 },
-          { opacity: 1, scale: 1, y: 0, duration: 0.9, ease: "back.out(2)" },
-          0.4
+          { opacity: 0, scale: 0.2, rotateY: 90, filter: "blur(10px)" },
+          { opacity: 1, scale: 1, rotateY: 0, filter: "blur(0px)", duration: 1.1, ease: "back.out(2.5)" },
+          0.45
         );
       }
 
-      // 4. Single Divider Line - expand out from center
+      // 4. Single Divider Line - Center Line Spark Draw
       if (lineRef.current) {
         tl.fromTo(
           lineRef.current,
-          { scaleX: 0, transformOrigin: "center center", opacity: 0 },
-          { scaleX: 1, opacity: 1, duration: 1.1, ease: "power3.inOut" },
-          0.5
-        );
-      }
-
-      // 5. Giant Watermark "Jennifer" - deep parallax zoom fade
-      if (watermarkRef.current) {
-        tl.fromTo(
-          watermarkRef.current,
-          { opacity: 0, scale: 1.25, y: 80 },
-          { opacity: 1, scale: 1, y: 0, duration: 1.4, ease: "power2.out" },
+          { scaleX: 0, opacity: 0, transformOrigin: "center center" },
+          { scaleX: 1, opacity: 1, duration: 1.2, ease: "expo.out" },
           0.55
         );
       }
 
-      // 6. 3 Contact Columns - 3 distinct entries: Left slide, Bottom lift, Right slide
+      // 5. Giant Watermark "Jennifer" - Backdrop Fog Focus Zoom
+      if (watermarkRef.current) {
+        tl.fromTo(
+          watermarkRef.current,
+          { opacity: 0, scale: 0.75, filter: "blur(25px)", y: -40 },
+          { opacity: 1, scale: 1, filter: "blur(0px)", y: 0, duration: 1.6, ease: "power3.out" },
+          0.6
+        );
+      }
+
+      // 6. 3 Contact Columns - 3D Unfold Doors & Liquid Morph
       if (col1Ref.current) {
         tl.fromTo(
           col1Ref.current,
-          { opacity: 0, x: -60, skewX: 5 },
-          { opacity: 1, x: 0, skewX: 0, duration: 0.9, ease: "power3.out" },
-          0.75
+          { opacity: 0, rotateY: -80, filter: "blur(8px)", transformOrigin: "left center" },
+          { opacity: 1, rotateY: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out" },
+          0.8
         );
       }
 
       if (col2Ref.current) {
         tl.fromTo(
           col2Ref.current,
-          { opacity: 0, y: 60, scale: 0.92 },
-          { opacity: 1, y: 0, scale: 1, duration: 0.9, ease: "power3.out" },
-          0.85
+          { opacity: 0, scale: 1.25, y: 50, filter: "blur(10px)" },
+          { opacity: 1, scale: 1, y: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out" },
+          0.9
         );
       }
 
       if (col3Ref.current) {
         tl.fromTo(
           col3Ref.current,
-          { opacity: 0, x: 60, skewX: -5 },
-          { opacity: 1, x: 0, skewX: 0, duration: 0.9, ease: "power3.out" },
-          0.95
+          { opacity: 0, rotateY: 80, filter: "blur(8px)", transformOrigin: "right center" },
+          { opacity: 1, rotateY: 0, filter: "blur(0px)", duration: 1.1, ease: "power3.out" },
+          1.0
         );
       }
 
-      // 7. Bottom Bar - Signature left tilt, Copyright float, Back-to-top bounce right
+      // 7. Bottom Bar - Signature ink flourish, copyright float, arrow pop
       if (sigRef.current) {
         tl.fromTo(
           sigRef.current,
-          { opacity: 0, x: -30, rotate: -4 },
-          { opacity: 1, x: 0, rotate: 0, duration: 0.8, ease: "power2.out" },
-          1.05
+          { opacity: 0, scale: 0.8, rotate: -5, filter: "blur(6px)" },
+          { opacity: 1, scale: 1, rotate: 0, filter: "blur(0px)", duration: 1, ease: "power2.out" },
+          1.1
         );
       }
 
       if (copyRef.current) {
         tl.fromTo(
           copyRef.current,
-          { opacity: 0, y: 20 },
-          { opacity: 1, y: 0, duration: 0.8, ease: "power2.out" },
-          1.15
+          { opacity: 0, y: 15, filter: "blur(4px)" },
+          { opacity: 1, y: 0, filter: "blur(0px)", duration: 0.9, ease: "power2.out" },
+          1.2
         );
       }
 
       if (topLinkRef.current) {
         tl.fromTo(
           topLinkRef.current,
-          { opacity: 0, x: 30 },
-          { opacity: 1, x: 0, duration: 0.9, ease: "back.out(1.7)" },
+          { opacity: 0, scale: 0.3, y: 20, rotate: -45 },
+          { opacity: 1, scale: 1, y: 0, rotate: 0, duration: 1, ease: "back.out(2)" },
           1.25
         );
       }
@@ -172,31 +163,23 @@ export default function Footer() {
       id="footer"
       style={{ backgroundColor: "#0e0d0b" }}
     >
-      <div className="at-footer-area pt-90 pb-40 p-relative z-1">
+      <div className="at-footer-area pt-100 pb-40 p-relative z-1">
         <div className="container">
           {/* Top Contact Section */}
           <div className="text-center mb-5">
-            {/* Section Tag */}
-            <span
-              ref={tagRef}
-              className="d-inline-block text-uppercase fw-500 mb-3"
-              style={{ color: "#cda052", letterSpacing: "0.18em", fontSize: "12px" }}
-            >
-              (05) CONTACT
-            </span>
-
-            {/* Main Headline */}
+            {/* Main Headline (Bigger & Bold) */}
             <h2
               ref={titleTextRef}
-              className="display-3 fw-bold text-white mb-4"
+              className="display-2 fw-bold text-white mb-4 d-inline-flex flex-wrap align-items-center justify-content-center gap-2"
               style={{
                 fontFamily: "var(--font-bricolage), sans-serif",
-                letterSpacing: "-0.03em",
-                fontSize: "clamp(36px, 5vw, 68px)",
+                letterSpacing: "-0.04em",
+                fontSize: "clamp(48px, 7.5vw, 105px)",
                 perspective: "1000px",
+                lineHeight: 1.05,
               }}
             >
-              Let&apos;s make it{" "}
+              <span>Let&apos;s make it</span>{" "}
               <span
                 ref={titleScriptRef}
                 className="d-inline-block"
@@ -205,7 +188,9 @@ export default function Footer() {
                   color: "#cda052",
                   fontWeight: 400,
                   fontStyle: "italic",
-                  marginLeft: "4px",
+                  fontSize: "clamp(62px, 9.5vw, 135px)",
+                  marginLeft: "12px",
+                  lineHeight: 0.9,
                 }}
               >
                 yours.
