@@ -11,47 +11,88 @@ export function initPins(): () => void {
   const cleanups: Array<() => void> = [];
 
   const ctx = gsap.context(() => {
-    // Showreel zoom
+    // Showreel zoom & frame-by-frame controlled video parallax scrub
     document.querySelectorAll<HTMLElement>(".postbox-scroll-zoom").forEach((sec) => {
       const item = sec.querySelector<HTMLElement>(".postbox-item");
-      const img = sec.querySelector<HTMLElement>(".postbox-scroll-zoom-img");
-      const play = sec.querySelector<HTMLElement>(".postbox-scroll-zoom-play");
+      const media = sec.querySelector<HTMLElement>(".postbox-scroll-zoom-img");
       const marquee = sec.querySelector<HTMLElement>(".postbox-scroll-zoom-marquee");
-      if (!item || !img || !play) return;
+      if (!item || !media) return;
+
+      const video = media instanceof HTMLVideoElement ? media : media.querySelector<HTMLVideoElement>("video");
+      if (video) {
+        video.pause();
+      }
+
+      const itemWrap = sec.querySelector<HTMLElement>(".postbox-item-wrap");
+      if (itemWrap) {
+        itemWrap.style.height = "250vh";
+      }
+
       const insets = () => {
-        const r = img.getBoundingClientRect();
-        return { x: Math.max((r.width - 200) / 2, 0), y: Math.max((r.height - 100) / 2, 0) };
+        const r = media.getBoundingClientRect();
+        return { x: Math.max((r.width - 240) / 2, 0), y: Math.max((r.height - 120) / 2, 0) };
       };
       {
         const { x, y } = insets();
-        gsap.set(img, { clipPath: `inset(${y}px ${x}px ${y}px ${x}px round 4px)` });
+        gsap.set(media, { clipPath: `inset(${y}px ${x}px ${y}px ${x}px round 8px)` });
       }
+
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: item,
           start: "top top",
-          end: "bottom top",
+          end: "+=150%",
           pin: true,
-          scrub: 1,
-          toggleActions: "play none none reverse",
+          scrub: 0.6,
           invalidateOnRefresh: true,
         },
       });
+
+      // Expand clip-path from compact slot to full bleed
       tl.fromTo(
-        img,
+        media,
         {
           clipPath: () => {
             const { x, y } = insets();
-            return `inset(${y}px ${x}px ${y}px ${x}px round 4px)`;
+            return `inset(${y}px ${x}px ${y}px ${x}px round 8px)`;
           },
-          ease: "none",
+          scale: 1.1,
         },
-        { clipPath: "inset(0px 0px 0px 0px round 42px)", duration: 1, ease: "none" },
-        0,
+        { clipPath: "inset(0px 0px 0px 0px round 36px)", scale: 1, duration: 0.4, ease: "power1.inOut" },
+        0
       );
-      if (marquee) tl.fromTo(marquee, { opacity: 1 }, { opacity: 0, ease: "none", duration: 0.6 }, 0);
-      tl.fromTo(play, { opacity: 0, scale: 0.5 }, { opacity: 1, scale: 1, ease: "none" }, 0.78);
-      tl.call(() => sec.classList.add("postbox-scroll-zoom-ready"), [], 0.78);
+
+      // Fade marquee background text
+      if (marquee) {
+        tl.fromTo(marquee, { opacity: 1, scale: 1 }, { opacity: 0, scale: 0.9, ease: "none", duration: 0.3 }, 0);
+      }
+
+      // Frame-by-frame video scrub controlled per scroll
+      if (video) {
+        const videoState = { currentTime: 0 };
+        const getDuration = () => (video.duration && !isNaN(video.duration) && video.duration > 0 ? video.duration : 5);
+
+        tl.to(
+          videoState,
+          {
+            currentTime: () => getDuration(),
+            ease: "none",
+            duration: 1,
+            onUpdate: () => {
+              if (video && !isNaN(video.duration) && video.duration > 0) {
+                try {
+                  video.currentTime = videoState.currentTime;
+                } catch {
+                  // handle seeking
+                }
+              }
+            },
+          },
+          0
+        );
+      }
+
+      tl.call(() => sec.classList.add("postbox-scroll-zoom-ready"), [], 0.4);
     });
 
     // Testimonials (section-fix)
