@@ -62,19 +62,10 @@ export function initPins(): () => void {
         tl.fromTo(marquee, { opacity: 1 }, { opacity: 0, ease: "none", duration: 0.6 }, 0);
       }
 
-      // Synchronize video playback & frame progression with scroll
+      // Ensure video plays smoothly
       if (video) {
+        video.muted = true;
         video.play().catch(() => {});
-
-        tl.to(
-          video,
-          {
-            currentTime: () => (video.duration && !isNaN(video.duration) ? video.duration * 0.85 : 4),
-            ease: "none",
-            duration: 1,
-          },
-          0
-        );
       }
 
       tl.call(() => sec.classList.add("postbox-scroll-zoom-ready"), [], 0.78);
