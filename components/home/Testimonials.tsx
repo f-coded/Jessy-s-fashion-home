@@ -25,6 +25,27 @@ const ITEMS = [
     company: "Harrington, Delaware",
     avatar: "/assets/imgs/avatar/avatar-3.jpg",
   },
+  {
+    text: "“Working with Jenny from Dubai has been seamless. The craftsmanship of her bespoke gowns and quality of raw silks surpassed European luxury standards.”",
+    name: "Fatima Al-Maktoum",
+    role: "Luxury Stylist & Buyer",
+    company: "Dubai, UAE",
+    avatar: "/assets/imgs/avatar/thumb-1.jpg",
+  },
+  {
+    text: "“Jenny's Fashion Home delivers exceptional tailored pieces. Her attention to intricate embroidery and structural fitting is celebrated across our Shanghai studio.”",
+    name: "Wei Chen",
+    role: "Creative Director",
+    company: "Shanghai, China",
+    avatar: "/assets/imgs/avatar/thumb-2.jpg",
+  },
+  {
+    text: "“Her custom evening wear collections are an absolute masterpiece in Singapore. Precise tailoring, prompt international freight, and impeccable style.”",
+    name: "Evelyn Tan",
+    role: "Haute Couture Retailer",
+    company: "Singapore",
+    avatar: "/assets/imgs/avatar/thumb-3.jpg",
+  },
 ];
 
 /** Pinned title + stacked testimonial cards (`.section-fix` / `.scroll-active-item`). */
