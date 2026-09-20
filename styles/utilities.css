@@ -1,6 +1,6 @@
 @keyframes swiper-preloader-spin{0%{transform:rotate(0)}to{transform:rotate(360deg)}}
 .mfp-bg{z-index:1042;opacity:.8;background:#0b0b0b;width:100%;height:100%;position:fixed;top:0;left:0;overflow:hidden}
-.mfp-wrap{z-index:1043;-webkit-backface-visibility:hidden;width:100%;height:100%;position:fixed;top:0;left:0;outline:none!important}
+.mfp-wrap{z-index:1043;-webkit-backface-visibility:hidden;backface-visibility:hidden;width:100%;height:100%;position:fixed;top:0;left:0;outline:none!important}
 .mfp-container{text-align:center;box-sizing:border-box;width:100%;height:100%;padding:0 8px;position:absolute;top:0;left:0}
 .mfp-container:before{content:"";vertical-align:middle;height:100%;display:inline-block}
 .mfp-align-top .mfp-container:before{display:none}
@@ -14,7 +14,7 @@
 .mfp-preloader a{color:#ccc}
 .mfp-preloader a:hover{color:#fff}
 .mfp-s-ready .mfp-preloader, .mfp-s-error .mfp-content{display:none}
-button.mfp-close, button.mfp-arrow{cursor:pointer;-webkit-appearance:none;z-index:1046;box-shadow:none;touch-action:manipulation;background:0 0;border:0;outline:none;padding:0;display:block;overflow:visible}
+button.mfp-close, button.mfp-arrow{cursor:pointer;-webkit-appearance:none;appearance:none;z-index:1046;box-shadow:none;touch-action:manipulation;background:0 0;border:0;outline:none;padding:0;display:block;overflow:visible}
 button::-moz-focus-inner{border:0;padding:0}
 .mfp-close{text-align:center;opacity:.65;color:#fff;width:44px;height:44px;padding:0 0 18px 10px;font-family:Arial,Baskerville,monospace;font-size:28px;font-style:normal;line-height:44px;text-decoration:none;position:absolute;top:0;right:0}
 .mfp-close:hover, .mfp-close:focus{opacity:1}
