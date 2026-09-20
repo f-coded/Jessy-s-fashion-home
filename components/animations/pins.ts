@@ -89,56 +89,30 @@ export function initPins(): () => void {
       if (!wrapper) return;
       const items = Array.from(wrapper.querySelectorAll<HTMLElement>(".item"));
       if (!items.length) return;
-
-      // Item 0 is 100% solid & visible; upcoming items sit below with visibility hidden
-      gsap.set(items[0], { minHeight: "auto", height: "auto", opacity: 1, yPercent: 0, visibility: "visible" });
-      items.forEach((it, i) => {
-        if (i !== 0) {
-          gsap.set(it, { yPercent: 100, opacity: 1, visibility: "hidden" });
-        }
-      });
-
+      gsap.set(items[0], { minHeight: "100vh", height: "auto" });
+      items.forEach((it, i) => i !== 0 && gsap.set(it, { yPercent: 100 }));
       const setActive = (progress: number) => {
         const idx = Math.min(Math.floor(Math.min(Math.max(progress, 0), 0.9999) * items.length), items.length - 1);
-        items.forEach((it, i) => {
-          it.classList.toggle("active", i === idx);
-          if (i > idx) {
-            gsap.set(it, { visibility: "hidden" });
-          } else {
-            gsap.set(it, { visibility: "visible" });
-          }
-        });
+        items.forEach((it, i) => it.classList.toggle("active", i === idx));
       };
-
       const tl = gsap.timeline({
         scrollTrigger: {
           trigger: sec,
           pin: true,
           start: "top top",
-          end: () => `+=${22 * items.length}%`,
+          end: () => `+=${60 * items.length}%`,
           scrub: 0.8,
-          invalidateOnRefresh: true,
+          invalidateOnRefresh: false,
           onUpdate: (self) => setActive(self.progress),
         },
         defaults: { ease: "none" },
       });
-
       items.forEach((it, i) => {
+        tl.to(it, { scale: 0.93, opacity: 0.9 });
         if (items[i + 1]) {
-          tl.to(
-            items[i + 1],
-            {
-              yPercent: 0,
-              duration: 1,
-              onStart: () => {
-                gsap.set(items[i + 1], { visibility: "visible" });
-              },
-            },
-            `>+=${0.1}`
-          );
+          tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
         }
       });
-
       const onScroll = () => {
         if (tl.scrollTrigger?.isActive) setActive(tl.scrollTrigger.progress ?? 0);
       };
