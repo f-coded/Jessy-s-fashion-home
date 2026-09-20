@@ -133,7 +133,7 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="col-md-4 col-12 text-center text-md-start">
+              <div className="col-md-4 col-12 text-center text-md-center">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
                   style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
@@ -149,7 +149,7 @@ export default function Footer() {
                 </a>
               </div>
 
-              <div className="col-md-4 col-12 text-center text-md-start">
+              <div className="col-md-4 col-12 text-center text-md-end">
                 <span
                   className="d-block text-uppercase fw-500 mb-2"
                   style={{ color: "#cda052", letterSpacing: "0.14em", fontSize: "12px" }}
