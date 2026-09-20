@@ -175,7 +175,7 @@ export default function Footer() {
           boxSizing: "border-box",
           whiteSpace: "nowrap",
           fontFamily: "var(--font-bricolage), sans-serif",
-          fontSize: "clamp(115px, 20vw, 340px)",
+          fontSize: "clamp(115px, 24vw, 440px)",
           fontWeight: 800,
           lineHeight: 0.95,
           letterSpacing: "-0.04em",
