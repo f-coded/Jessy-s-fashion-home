@@ -197,29 +197,28 @@ export default function Footer() {
         <div className="container">
           {/* Top Contact Section */}
           <div className="text-center mb-5">
-            {/* Main Headline */}
+            {/* Main Headline (Stacked on mobile, side-by-side on desktop) */}
             <h2
               ref={titleTextRef}
-              className="display-2 fw-bold text-white mb-4 d-inline-flex flex-wrap align-items-center justify-content-center gap-2"
+              className="display-2 fw-bold text-white mb-4 d-flex flex-column flex-md-row align-items-center justify-content-center gap-2"
               style={{
                 fontFamily: "var(--font-bricolage), sans-serif",
                 letterSpacing: "-0.04em",
-                fontSize: "clamp(48px, 7.5vw, 105px)",
+                fontSize: "clamp(38px, 7.5vw, 105px)",
                 perspective: "1000px",
                 lineHeight: 1.05,
               }}
             >
-              <span>Let&apos;s make it</span>{" "}
+              <span>Let&apos;s make it</span>
               <span
                 ref={titleScriptRef}
-                className="d-inline-block"
+                className="d-block d-md-inline-block"
                 style={{
                   fontFamily: "var(--font-script), cursive",
                   color: "#cda052",
                   fontWeight: 400,
                   fontStyle: "italic",
-                  fontSize: "clamp(62px, 9.5vw, 135px)",
-                  marginLeft: "12px",
+                  fontSize: "clamp(54px, 9.5vw, 135px)",
                   lineHeight: 0.9,
                 }}
               >
