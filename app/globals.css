@@ -203,17 +203,23 @@ h1, h2, h3, h4, h5, h6,
 .at-btn-group:hover > :first-child,
 .at-btn-group:hover > :nth-child(2),
 .at-btn-group:hover > :nth-child(3),
-.at-btn:hover,
 .at-hero-social a:hover,
 .at-hero-social.style-2 a:hover {
   background: var(--at-theme-primary) !important;
   border-color: var(--at-theme-primary) !important;
   color: #141210 !important;
 }
+.at-btn:hover,
+.at-btn.bg-transparent:hover {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  color: #ffffff !important;
+}
 .at-btn-group-transparent:hover > :nth-child(2),
 .at-btn-group-transparent:hover > :first-child {
-  background: var(--at-theme-primary) !important;
-  color: #141210 !important;
+  background: transparent !important;
+  color: #ffffff !important;
 }
 .sec-2-home-2 .mx-4 svg path {
   fill: var(--at-theme-primary);
