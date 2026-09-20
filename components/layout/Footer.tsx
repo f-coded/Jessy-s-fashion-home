@@ -241,15 +241,15 @@ export default function Footer() {
               ref={watermarkRef}
               className="p-absolute start-50 translate-middle-x pointer-events-none select-none z-0"
               style={{
-                top: "-70px",
+                top: "-80px",
                 width: "max-content",
-                maxWidth: "90vw",
+                maxWidth: "96vw",
                 whiteSpace: "nowrap",
                 fontFamily: "var(--font-bricolage), sans-serif",
-                fontSize: "clamp(85px, 15.8vw, 285px)",
+                fontSize: "clamp(110px, 22.5vw, 390px)",
                 fontWeight: 800,
                 lineHeight: 0.85,
-                letterSpacing: "-0.04em",
+                letterSpacing: "-0.06em",
                 background:
                   "linear-gradient(180deg, rgba(205, 160, 82, 0.35) 0%, rgba(205, 160, 82, 0.12) 45%, rgba(14, 13, 11, 0) 85%)",
                 WebkitBackgroundClip: "text",
