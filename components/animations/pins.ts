@@ -108,9 +108,9 @@ export function initPins(): () => void {
         defaults: { ease: "none" },
       });
       items.forEach((it, i) => {
-        tl.to(it, { scale: 0.93, opacity: 0.9 });
+        tl.to(it, { scale: 0.95, opacity: 1 });
         if (items[i + 1]) {
-          tl.fromTo(items[i + 1], { yPercent: 100 }, { yPercent: 0, duration: 1 }, "<");
+          tl.fromTo(items[i + 1], { yPercent: 100, opacity: 1 }, { yPercent: 0, opacity: 1, duration: 1 }, "<");
         }
       });
       const onScroll = () => {
