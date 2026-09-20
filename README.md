@@ -1,8 +1,7 @@
 # Fashionista
 
 Fashion-house landing page built with **Next.js 16 (App Router) + GSAP** (ScrollSmoother, ScrollTrigger),
-Swiper and Bootstrap 5. Layout, typography, spacing and every interaction are a 1:1 port of the
-"Digital Agency" home of the Orisa template, re-themed for the Fashionista brand.
+Swiper and Bootstrap 5. Layout, typography, spacing and every interaction are a 1:1 port.
 
 ## Run
 
