@@ -1,4 +1,5 @@
 import { HeroShape, WhatsappIcon } from "@/components/ui/Icons";
+import SplitText from "@/components/ui/SplitText";
 import { SITE } from "@/lib/site";
 
 export default function Hero() {
@@ -40,8 +41,8 @@ export default function Hero() {
           <div className="row justify-content-center text-center mt-4">
             <div className="col-12">
               <div className="at-title-anim overflow-hidden text-center">
-                <h1 className="jfh-hero-title fw-400 mb-0 at-title-text text-white text-center" style={{ fontWeight: 400 }}>
-                  Jenny&apos;s Fashion Home<sup className="fw-300">®</sup>
+                <h1 className="jfh-hero-title reveal-text fw-400 mb-0 at-title-text text-white text-center" style={{ fontWeight: 400 }}>
+                  <SplitText text="Jenny's Fashion Home" /><sup className="fw-300">®</sup>
                 </h1>
               </div>
               <div className="d-flex justify-content-center align-items-center mt-4">

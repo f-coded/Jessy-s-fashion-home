@@ -1,14 +1,16 @@
 "use client";
 
 import { useEffect, useRef } from "react";
+import { usePathname } from "next/navigation";
 import gsap from "gsap";
 
 /**
  * Ten vertical bars that collapse with a stagger, then the loader fades out.
- * Exactly mirrors the template's loader timeline.
+ * Re-animates smoothly on page loads and client-side route transitions.
  */
 export default function PageLoader() {
   const ref = useRef<HTMLDivElement>(null);
+  const pathname = usePathname();
 
   useEffect(() => {
     const root = ref.current;
@@ -16,36 +18,37 @@ export default function PageLoader() {
     const bars = root.querySelectorAll(".bar");
     const logo = root.querySelector<HTMLImageElement>(".page-loader-logo img");
 
+    // Reset loader to full curtain view
+    root.style.display = "flex";
+    root.style.opacity = "1";
+    gsap.set(bars, { height: "105vh" });
+    if (logo) gsap.set(logo, { scale: 1 });
+
     const run = () => {
-      gsap.to(bars, { duration: 1.5, height: 0, stagger: { amount: 0.5 }, ease: "power4.inOut" });
-      setTimeout(() => {
-        gsap.to(root, {
-          duration: 0.5,
-          opacity: 0,
-          ease: "power2.inOut",
-          onComplete: () => {
-            root.style.display = "none";
-          },
-        });
-      }, 900);
+      if (logo) {
+        gsap.to(logo, { duration: 1, scale: 1.4, ease: "power2.out" });
+      }
+      gsap.to(bars, {
+        duration: 1.2,
+        height: 0,
+        stagger: { amount: 0.4 },
+        ease: "power4.inOut",
+        onComplete: () => {
+          gsap.to(root, {
+            duration: 0.35,
+            opacity: 0,
+            ease: "power2.inOut",
+            onComplete: () => {
+              root.style.display = "none";
+            },
+          });
+        },
+      });
     };
 
-    if (logo) {
-      if (logo.complete) {
-        gsap.to(logo, { duration: 1, scale: 1.5 });
-        run();
-      } else {
-        const onLoad = () => {
-          logo.removeEventListener("load", onLoad);
-          gsap.to(logo, { duration: 1, scale: 1.5 });
-          run();
-        };
-        logo.addEventListener("load", onLoad);
-      }
-    } else {
-      run();
-    }
-  }, []);
+    const timer = setTimeout(run, 150);
+    return () => clearTimeout(timer);
+  }, [pathname]);
 
   return (
     <div className="page-loader" ref={ref}>
