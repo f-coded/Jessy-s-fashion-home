@@ -241,7 +241,7 @@ export default function Footer() {
               ref={watermarkRef}
               className="p-absolute start-50 translate-middle-x w-100 text-center pointer-events-none select-none z-0"
               style={{
-                top: "-25px",
+                top: "-70px",
                 width: "100%",
                 maxWidth: "100vw",
                 padding: "0.2em 0.1em",
