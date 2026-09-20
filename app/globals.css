@@ -315,7 +315,7 @@ h1, h2, h3, h4, h5, h6,
 
 @media (max-width: 575.98px) {
   .jfh-hero-title {
-    font-size: clamp(1.35rem, 5.8vw, 2.2rem);
+    font-size: clamp(1.65rem, 6.8vw, 2.5rem);
     white-space: nowrap;
   }
   .jfh-hero-title .char,
@@ -328,6 +328,7 @@ h1, h2, h3, h4, h5, h6,
     max-width: 330px !important;
     margin-left: auto !important;
     margin-right: auto !important;
+    text-align: left !important;
   }
 }
 

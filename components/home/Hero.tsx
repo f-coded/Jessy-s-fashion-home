@@ -25,10 +25,10 @@ export default function Hero() {
           {/* Top Row: Subheadline Text & Icon Centered container */}
           <div className="row justify-content-center mb-4 mb-md-5">
             <div className="col-xxl-5 col-xl-6 col-lg-7 col-md-8 col-12">
-              <div className="at-hero-service pb-3 pb-md-4 border-bottom border-white border-opacity-20" style={{ borderBottomColor: "rgba(255, 255, 255, 0.18)" }}>
-                <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-center text-md-start mx-auto" style={{ maxWidth: "480px" }}>
+              <div className="at-hero-service pb-3 pb-md-4 border-bottom" style={{ borderBottomColor: "rgba(201, 169, 97, 0.4)" }}>
+                <div className="d-flex flex-column align-items-center justify-content-center gap-3 text-start mx-auto" style={{ maxWidth: "480px" }}>
                   <HeroShape />
-                  <p className="jfh-hero-desc fz-font-md fw-500 text-white lh-base mb-0">
+                  <p className="jfh-hero-desc fz-font-md fw-500 text-white lh-base mb-0 text-start">
                     Bespoke haute couture, designer fabrics, ready-to-wear fashion and sewing machine supplies for brands, artists and makers worldwide.
                   </p>
                 </div>
@@ -44,7 +44,7 @@ export default function Hero() {
                   Jenny&apos;s Fashion Home<sup className="fw-300">®</sup>
                 </h1>
               </div>
-              <div className="d-flex justify-content-center align-items-center mt-4">
+              <div className="d-flex justify-content-center align-items-center mt-8">
                 <p className="fz-font-lg fw-500 mb-0 text-white">
                   <a
                     href={SITE.whatsapp}
@@ -53,7 +53,7 @@ export default function Hero() {
                     className="jfh-whatsapp text-decoration-none d-inline-flex align-items-center gap-2"
                   >
                     <WhatsappIcon size={20} />
-                    <span>[ {SITE.phoneDisplay} ]</span>
+                    <span>{SITE.phoneDisplay}</span>
                   </a>
                 </p>
               </div>
