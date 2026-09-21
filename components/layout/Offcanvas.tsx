@@ -1,5 +1,4 @@
 import Logo from "./Logo";
-import SocialGrid from "./SocialGrid";
 import MobileNav from "./MobileNav";
 import { CloseIcon } from "@/components/ui/Icons";
 import { SITE } from "@/lib/site";
@@ -54,10 +53,6 @@ export default function Offcanvas() {
               <a href="#footer">{SITE.city}, USA</a>
             </li>
           </ul>
-        </div>
-        <div className="at-offcanvas-social">
-          <h3 className="at-offcanvas-title sm">Follow Us</h3>
-          <SocialGrid />
         </div>
       </div>
     </div>

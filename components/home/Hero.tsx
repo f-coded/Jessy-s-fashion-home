@@ -8,15 +8,16 @@ export default function Hero() {
       <div className="overflow-hidden p-relative pt-100 pb-80 pt-md-140 pb-md-100 mx-lg-3 mx-2 rounded-5 jfh-hero">
         {/* Boutique video backdrop + dark veil */}
         <video
-          className="jfh-hero__video"
+          className="jfh-hero__video pointer-events-none"
           src="/assets/video/boutique.mp4"
           poster="/assets/imgs/store/boutique.jpg"
           autoPlay
           muted
           loop
           playsInline
+          style={{ pointerEvents: "none" }}
         ></video>
-        <div className="jfh-hero__veil"></div>
+        <div className="jfh-hero__veil pointer-events-none" style={{ pointerEvents: "none" }}></div>
         <div
           className="p-absolute top-0 left-0 w-100 h-100 rounded-5 opacity-10 z-0"
           style={{ backgroundImage: "url(/assets/imgs/pages/noise.gif)" }}

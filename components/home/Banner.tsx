@@ -25,7 +25,8 @@ export default function Banner() {
           muted
           loop
           playsInline
-          className="img-cover p-absolute top-0 start-0 end-0 bottom-0 z-0"
+          className="img-cover p-absolute top-0 start-0 end-0 bottom-0 z-0 pointer-events-none"
+          style={{ pointerEvents: "none" }}
         ></video>
         <div className="container pb-100 p-relative z-index-2">
           <div className="row">

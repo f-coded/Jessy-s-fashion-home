@@ -638,3 +638,23 @@ h1, h2, h3, h4, h5, h6,
     padding-top: 140px !important;
   }
 }
+
+/* iOS Safari / Chrome Mobile Touch & Momentum Scrolling Optimization */
+html, body {
+  -webkit-overflow-scrolling: touch !important;
+  overflow-x: hidden;
+}
+
+body {
+  touch-action: manipulation;
+}
+
+.jfh-hero__video,
+.jfh-hero__veil,
+.sec-2-home-2 video {
+  pointer-events: none !important;
+}
+
+a, button, input, select, textarea {
+  touch-action: manipulation;
+}
