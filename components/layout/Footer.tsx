@@ -163,10 +163,10 @@ export default function Footer() {
       id="footer"
       style={{ backgroundColor: "#0e0d0b" }}
     >
-      <div className="at-footer-area pt-100 pb-40 p-relative z-1">
+      <div className="at-footer-area pt-5 pt-md-100 pb-40 p-relative z-1">
         <div className="container">
           {/* Top Contact Section */}
-          <div className="text-center mb-5">
+          <div className="text-center mb-5 pt-4 pt-md-0">
             {/* Main Headline (Stacked on mobile, side-by-side on desktop) */}
             <h2
               ref={titleTextRef}
