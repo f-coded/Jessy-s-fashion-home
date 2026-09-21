@@ -632,9 +632,17 @@ h1, h2, h3, h4, h5, h6,
   letter-spacing: normal !important;
 }
 
-/* Mobile footer top padding fix */
+/* Mobile footer layout, top padding & bottom gap fixes */
 @media (max-width: 767.98px) {
+  .footer-fixed-bottom {
+    position: relative !important;
+  }
+  .footer-placeholder {
+    display: none !important;
+    height: 0 !important;
+  }
   .at-footer-area {
-    padding-top: 90px !important;
+    padding-top: 130px !important;
+    padding-bottom: 20px !important;
   }
 }

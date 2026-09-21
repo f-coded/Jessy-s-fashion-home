@@ -341,8 +341,8 @@ export default function Footer() {
                 </span>
               </div>
 
-              {/* Back to top Link Right */}
-              <div ref={topLinkRef} className="col-md-4 col-12 text-center text-md-end">
+              {/* Back to top Link Right (Hidden on mobile) */}
+              <div ref={topLinkRef} className="col-md-4 col-12 text-center text-md-end d-none d-md-block">
                 <a
                   href="#top-hero"
                   onClick={scrollToTop}
