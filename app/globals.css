@@ -318,13 +318,21 @@ h1, h2, h3, h4, h5, h6,
   line-height: 1.05;
   letter-spacing: -0.02em;
   font-family: var(--at-ff-heading);
+  transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1), text-shadow 0.4s ease;
+  display: inline-block;
+}
+.jfh-hero-title:hover {
+  transform: scale(1.015);
+  text-shadow: 0 0 35px rgba(201, 169, 97, 0.45), 0 0 10px rgba(255, 255, 255, 0.25);
 }
 .jfh-hero-title sup {
   font-size: 0.4em;
   vertical-align: super;
 }
-.jfh-hero .at-title-anim {
-  line-height: 1.1;
+.jfh-hero-title .char {
+  translate: 0 0 !important;
+  text-shadow: none !important;
+  transition: none !important;
 }
 
 @media (max-width: 575.98px) {
